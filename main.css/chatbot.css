@@ -15,7 +15,8 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
-    padding: clamp(8px, 2vw, 16px);
+    padding: clamp(4px, 2vw, 16px);
+    line-height: 1.4;
 }
 
 .container {
@@ -23,101 +24,115 @@ body {
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
-    border-radius: 14px;
-    padding: clamp(16px, 3vw, 20px);
+    border-radius: clamp(8px, 2vw, 14px);
+    padding: clamp(12px, 3vw, 20px);
     box-shadow: 0 6px 24px rgba(31, 38, 135, 0.37);
     border: 1px solid rgba(255, 255, 255, 0.18);
-    min-height: calc(100vh - 32px);
+    min-height: calc(100vh - clamp(8px, 4vw, 32px));
     position: relative;
     width: 100%;
 }
 
 .header {
     text-align: center;
-    margin-bottom: clamp(16px, 3vw, 20px);
+    margin-bottom: clamp(12px, 3vw, 20px);
     color: white;
+    padding: clamp(8px, 2vw, 16px) 0;
 }
 
 .header h1 {
-    font-size: clamp(1.4em, 4vw, 1.8em);
-    margin-bottom: 6px;
+    font-size: clamp(1.3em, 5vw, 1.8em);
+    margin-bottom: clamp(4px, 1vw, 8px);
     text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
 }
 
 .header p {
-    font-size: clamp(0.9em, 2.5vw, 1em);
+    font-size: clamp(0.8em, 3vw, 1em);
     opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .main-content {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    gap: clamp(20px, 4vw, 45px);
+    gap: clamp(16px, 4vw, 45px);
     flex-wrap: wrap;
-    height: 598px;
+    min-height: clamp(400px, 60vh, 598px);
     width: 100%;
 }
 
 .left-section {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: clamp(8px, 2vw, 12px);
     flex: 1;
-    min-width: 300px;
+    min-width: clamp(280px, 90vw, 400px);
     max-width: 400px;
 }
 
 .restaurant-list {
     background: rgba(255, 255, 255, 0.9);
-    border-radius: 14.4px;
-    padding: 14.4px;
+    border-radius: clamp(8px, 2vw, 14px);
+    padding: clamp(12px, 3vw, 16px);
     overflow-y: auto;
     height: fit-content;
-    max-height: 400px;
+    max-height: clamp(300px, 40vh, 400px);
+    -webkit-overflow-scrolling: touch;
 }
 
 .restaurant-list h2 {
     color: #333;
-    margin-bottom: 14px;
-    font-size: clamp(1.2em, 3vw, 1.4em);
+    margin-bottom: clamp(8px, 2vw, 14px);
+    font-size: clamp(1.1em, 4vw, 1.4em);
+    font-weight: 600;
 }
 
 .restaurant-card {
     background: white;
-    border-radius: 12px;
-    padding: 9.6px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    border-radius: clamp(8px, 2vw, 12px);
+    padding: clamp(8px, 2vw, 12px);
+    margin: clamp(6px, 1.5vw, 10px) 0;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 2.4px solid transparent;
-    box-shadow: 0 3.6px 9.6px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
 .restaurant-card:hover {
-    transform: translateY(-1.8px);
-    box-shadow: 0 6px 19.2px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.restaurant-card:active {
+    transform: translateY(0);
+    transition: transform 0.1s ease;
 }
 
 .restaurant-card.active {
     border-color: #4267B2;
     background: #f0f2f5;
+    box-shadow: 0 4px 16px rgba(66, 103, 178, 0.2);
 }
 
 .restaurant-card-header {
     display: flex;
     align-items: center;
-    gap: 14.4px;
-    flex-wrap: wrap;
+    gap: clamp(8px, 2vw, 14px);
+    flex-wrap: nowrap;
 }
 
 .restaurant-avatar {
-    width: 48px;
-    height: 48px;
+    width: clamp(40px, 8vw, 48px);
+    height: clamp(40px, 8vw, 48px);
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .restaurant-info {
@@ -127,24 +142,29 @@ body {
 
 .restaurant-info h3 {
     color: #333;
-    font-size: clamp(1.1em, 2.5vw, 1.14em);
-    margin-bottom: 4.8px;
+    font-size: clamp(1em, 3vw, 1.14em);
+    margin-bottom: clamp(2px, 1vw, 4px);
     word-wrap: break-word;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .restaurant-info p {
     color: #666;
-    font-size: clamp(0.85em, 2vw, 0.9em);
+    font-size: clamp(0.8em, 2.5vw, 0.9em);
     word-wrap: break-word;
+    line-height: 1.4;
 }
 
 .info-section {
     background: rgba(255, 255, 255, 0.9);
-    border-radius: 12px;
-    padding: 16px;
+    border-radius: clamp(8px, 2vw, 12px);
+    padding: clamp(12px, 3vw, 16px);
     display: none;
     overflow-y: auto;
-    max-height: 277px;
+    max-height: clamp(250px, 35vh, 300px);
+    -webkit-overflow-scrolling: touch;
+    position: relative;
 }
 
 .info-section.active {
@@ -153,29 +173,44 @@ body {
 
 .info-section h3 {
     color: #333;
-    margin-bottom: 10px;
-    font-size: clamp(1.05em, 2.5vw, 1.1em);
+    margin-bottom: clamp(8px, 2vw, 10px);
+    font-size: clamp(1em, 3vw, 1.1em);
+    font-weight: 600;
+    padding-right: 24px;
 }
 
 .info-details {
     color: #555;
-    line-height: 1.5;
-    font-size: clamp(0.9em, 2vw, 1em);
+    line-height: 1.6;
+    font-size: clamp(0.85em, 2.5vw, 1em);
 }
 
 .info-details strong {
     color: #333;
+    font-weight: 600;
 }
 
 .close-info {
     position: absolute;
-    top: 8px;
-    right: 12px;
-    background: none;
+    top: clamp(6px, 1.5vw, 8px);
+    right: clamp(8px, 2vw, 12px);
+    background: #f0f0f0;
     border: none;
-    font-size: 1.2em;
+    border-radius: 50%;
+    width: clamp(24px, 5vw, 28px);
+    height: clamp(24px, 5vw, 28px);
+    font-size: clamp(0.9em, 2.5vw, 1.2em);
     cursor: pointer;
     color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.close-info:hover {
+    background: #e0e0e0;
+    color: #333;
 }
 
 .chatbox {
@@ -184,57 +219,65 @@ body {
     box-shadow: 0 3px 16px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
     flex: 1;
-    min-width: 350px;
+    min-width: clamp(300px, 90vw, 670px);
     max-width: 670px;
+    border-radius: clamp(8px, 2vw, 12px);
+    overflow: hidden;
 }
 
 .chatbox.active {
     display: flex;
-    height: clamp(604px, 60vh, 620px);
+    height: clamp(500px, 65vh, 620px);
 }
 
 .chat-header {
     background: #4267B2;
     color: white;
-    padding: 10px 14px;
-    border-radius: 12px 12px 0 0;
+    padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 16px);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: clamp(8px, 2vw, 12px);
     flex-shrink: 0;
+    min-height: clamp(48px, 8vh, 60px);
 }
 
 .chat-avatar {
-    width: 32px;
-    height: 32px;
+    width: clamp(28px, 6vw, 32px);
+    height: clamp(28px, 6vw, 32px);
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .chat-title {
-    font-size: clamp(0.9em, 2.5vw, 1em);
+    font-size: clamp(0.9em, 2.8vw, 1em);
     font-weight: 600;
     word-wrap: break-word;
+    flex: 1;
+    min-width: 0;
 }
 
 .chat-status {
-    font-size: clamp(0.7em, 2vw, 0.75em);
+    font-size: clamp(0.7em, 2.2vw, 0.75em);
     opacity: 0.9;
 }
 
 .chat-messages {
-    padding: 14px;
+    padding: clamp(8px, 2vw, 14px);
     overflow-y: auto;
     background: #f8f9fa;
     flex: 1;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
 .message {
-    margin-bottom: 10px;
+    margin-bottom: clamp(8px, 2vw, 12px);
     display: flex;
     align-items: flex-start;
-    gap: 8px;
+    gap: clamp(6px, 1.5vw, 8px);
+    max-width: 100%;
 }
 
 .message.user {
@@ -242,22 +285,25 @@ body {
 }
 
 .message-avatar {
-    width: 28px;
-    height: 28px;
+    width: clamp(24px, 5vw, 28px);
+    height: clamp(24px, 5vw, 28px);
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
+    margin-top: 2px;
 }
 
 .message-content {
     background: white;
-    padding: 8px 12px;
-    border-radius: 16px;
-    max-width: 70%;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 12px);
+    border-radius: clamp(12px, 3vw, 16px);
+    max-width: clamp(250px, 75vw, 70%);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     text-align: left;
     word-wrap: break-word;
-    font-size: clamp(0.85em, 2vw, 0.9em);
+    font-size: clamp(0.8em, 2.5vw, 0.9em);
+    line-height: 1.4;
+    position: relative;
 }
 
 .message.user .message-content {
@@ -266,38 +312,43 @@ body {
 }
 
 .quick-questions {
-    padding: 12px 14px;
+    padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 16px);
     background: white;
     border-top: 1px solid #e4e6ea;
     flex-shrink: 0;
 }
 
 .quick-questions h4 {
-    margin-bottom: 8px;
+    margin-bottom: clamp(6px, 1.5vw, 8px);
     color: #333;
-    font-size: clamp(0.8em, 2vw, 0.85em);
+    font-size: clamp(0.8em, 2.5vw, 0.85em);
+    font-weight: 600;
 }
 
 .question-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 6px;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(120px, 25vw, 140px), 1fr));
+    gap: clamp(4px, 1vw, 6px);
     width: 100%;
 }
 
 .question-btn {
     background: #f0f2f5;
     border: 1px solid #ddd;
-    border-radius: 16px;
-    padding: 6px 10px;
+    border-radius: clamp(12px, 3vw, 16px);
+    padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 12px);
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: clamp(0.75em, 2vw, 0.8em);
+    font-size: clamp(0.7em, 2.2vw, 0.8em);
     color: #333;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-height: clamp(32px, 6vw, 36px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .question-btn:hover {
@@ -305,24 +356,34 @@ body {
     transform: translateY(-1px);
 }
 
+.question-btn:active {
+    transform: translateY(0);
+}
+
 .chat-input {
     display: flex;
-    padding: 12px 14px;
+    padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 16px);
     background: white;
     border-top: 1px solid #e4e6ea;
-    border-radius: 0 0 12px 12px;
     flex-shrink: 0;
-    gap: 8px;
+    gap: clamp(6px, 1.5vw, 8px);
+    align-items: center;
 }
 
 .chat-input input {
     flex: 1;
     border: 1px solid #ddd;
-    border-radius: 16px;
-    padding: 8px 12px;
+    border-radius: clamp(12px, 3vw, 16px);
+    padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 12px);
     outline: none;
-    font-size: clamp(0.8em, 2vw, 0.85em);
+    font-size: clamp(0.8em, 2.5vw, 0.85em);
     min-width: 0;
+    min-height: clamp(32px, 6vw, 36px);
+    transition: border-color 0.2s ease;
+}
+
+.chat-input input:focus {
+    border-color: #4267B2;
 }
 
 .chat-input button {
@@ -330,66 +391,84 @@ body {
     color: white;
     border: none;
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+    width: clamp(32px, 6vw, 36px);
+    height: clamp(32px, 6vw, 36px);
     cursor: pointer;
-    font-size: 1em;
+    font-size: clamp(0.9em, 2.5vw, 1em);
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.chat-input button:hover {
+    background: #365899;
+    transform: scale(1.05);
+}
+
+.chat-input button:active {
+    transform: scale(0.95);
 }
 
 .cta-button {
     background: linear-gradient(45deg, #ff6b6b, #feca57);
     color: white;
-    padding: clamp(12px, 3vw, 14px) clamp(28px, 6vw, 36px);
-    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    padding: clamp(10px, 2.5vw, 14px) clamp(20px, 5vw, 36px);
+    font-size: clamp(0.85rem, 2.8vw, 1rem);
     font-weight: 600;
     border: none;
-    border-radius: 40px;
+    border-radius: clamp(20px, 5vw, 40px);
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 4px 16px rgba(255, 107, 107, 0.3);
     white-space: nowrap;
+    min-height: clamp(40px, 8vw, 48px);
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(255, 107, 107, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 107, 107, 0.4);
+}
+
+.cta-button:active {
+    transform: translateY(0);
 }
 
 .cta-wrapper {
     display: flex;
     justify-content: center;
-    padding-bottom: 20px;
+    padding: clamp(16px, 4vw, 20px) 0;
 }
 
 .features-title {
-    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
     color: white;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin-bottom: clamp(16px, 4vw, 20px);
+    margin-top: clamp(8px, 2vw, 10px);
     font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: clamp(8px, 2vw, 10px);
     text-align: center;
 }
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: clamp(16px, 3vw, 20px);
-    margin-top: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 80vw, 280px), 1fr));
+    gap: clamp(12px, 3vw, 20px);
+    margin-top: clamp(16px, 4vw, 24px);
     width: 100%;
 }
 
 .feature-card {
     background: rgba(255, 255, 255, 0.12);
-    border-radius: 16px;
-    padding: clamp(20px, 4vw, 28px) clamp(18px, 3vw, 24px);
+    border-radius: clamp(12px, 3vw, 16px);
+    padding: clamp(16px, 4vw, 28px) clamp(12px, 3vw, 24px);
     text-align: center;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -398,28 +477,28 @@ body {
 }
 
 .feature-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
     background: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
 .feature-icon {
-    font-size: clamp(2rem, 5vw, 2.5rem);
-    margin-bottom: 16px;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    margin-bottom: clamp(12px, 3vw, 16px);
     display: block;
 }
 
 .feature-title {
-    font-size: clamp(1.1rem, 3vw, 1.2rem);
+    font-size: clamp(1rem, 3.5vw, 1.2rem);
     color: white;
-    margin-bottom: 12px;
+    margin-bottom: clamp(8px, 2vw, 12px);
     font-weight: 600;
 }
 
 .feature-description {
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.5;
-    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+    font-size: clamp(0.8rem, 2.8vw, 0.95rem);
 }
 
 .sparkle {
@@ -455,11 +534,8 @@ body {
 
 .message-content ul,
 .message-content ol {
-    margin: 0.5em 0 0.5em 1.2em;
-    padding-left: 1em;
-    list-style-position: inside;
-    margin: 0;
-    padding: 0;
+    margin: 0.5em 0;
+    padding-left: 1.2em;
 }
 
 .message-content li {
@@ -468,105 +544,199 @@ body {
 }
 
 .message-content strong {
-    font-weight: bold;
+    font-weight: 600;
 }
 
-/* Responsive breakpoints */
+/* Enhanced Mobile Optimizations */
 @media (max-width: 1024px) {
     .container {
         max-width: 95%;
+        padding: clamp(8px, 2vw, 16px);
     }
-    
+
     .main-content {
         flex-direction: column;
-        gap: 20px;
+        gap: clamp(12px, 3vw, 20px);
     }
-    
+
     .left-section {
         max-width: 100%;
         order: 1;
     }
-    
+
     .chatbox {
         max-width: 100%;
         order: 2;
     }
-    
+
     .features-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 }
 
 @media (max-width: 768px) {
     body {
-        padding: 8px;
+        padding: clamp(4px, 1vw, 8px);
     }
-    
+
     .container {
-        min-height: calc(100vh - 16px);
-        padding: 12px;
+        min-height: calc(100vh - clamp(8px, 2vw, 16px));
+        padding: clamp(8px, 2vw, 12px);
+        border-radius: clamp(6px, 1.5vw, 10px);
     }
-    
+
     .main-content {
-        gap: 16px;
+        gap: clamp(8px, 2vw, 16px);
+        min-height: auto;
     }
-    
+
     .left-section {
         min-width: 100%;
     }
-    
+
     .chatbox {
         min-width: 100%;
     }
-    
+
     .chatbox.active {
-        height: 500px;
+        height: clamp(400px, 55vh, 500px);
     }
-    
+
     .features-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: clamp(8px, 2vw, 16px);
     }
-    
+
     .question-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: clamp(4px, 1vw, 6px);
     }
-    
+
     .restaurant-card-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 8px;
+        gap: clamp(8px, 2vw, 12px);
     }
-    
-    .restaurant-info {
-        text-align: center;
+
+    .restaurant-list {
+        max-height: clamp(250px, 30vh, 300px);
+    }
+
+    .message-content {
+        max-width: clamp(200px, 80vw, 85%);
     }
 }
 
 @media (max-width: 480px) {
     .question-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(4px, 1vw, 6px);
     }
-    
+
     .question-btn {
         white-space: normal;
         text-overflow: unset;
         overflow: visible;
-        padding: 8px 12px;
+        padding: clamp(6px, 1.5vw, 8px) clamp(6px, 1.5vw, 8px);
+        min-height: clamp(36px, 8vw, 42px);
+        font-size: clamp(0.7em, 2.5vw, 0.8em);
     }
-    
+
+    .chat-input {
+        gap: clamp(4px, 1vw, 6px);
+    }
+
+    .chatbox.active {
+        height: clamp(350px, 50vh, 450px);
+    }
+
+    .restaurant-card-header {
+        flex-direction: column;
+        text-align: center;
+        gap: clamp(6px, 1.5vw, 8px);
+    }
+
+    .restaurant-info {
+        text-align: center;
+    }
+
+    .message-content {
+        max-width: clamp(180px, 85vw, 90%);
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 360px) {
+    .question-grid {
+        grid-template-columns: 1fr;
+    }
+
     .chat-input {
         flex-direction: column;
-        gap: 8px;
+        gap: clamp(6px, 1.5vw, 8px);
+        align-items: stretch;
     }
-    
+
     .chat-input input {
-        margin-bottom: 8px;
+        margin-bottom: clamp(4px, 1vw, 6px);
     }
-    
+
     .chat-input button {
         width: 100%;
-        border-radius: 8px;
-        height: 40px;
+        border-radius: clamp(6px, 1.5vw, 8px);
+        height: clamp(36px, 8vw, 40px);
+    }
+
+    .message-content {
+        max-width: clamp(160px, 90vw, 95%);
+    }
+
+    .restaurant-list {
+        max-height: clamp(200px, 25vh, 250px);
+    }
+
+    .chatbox.active {
+        height: clamp(300px, 45vh, 400px);
+    }
+}
+
+/* Touch-friendly enhancements */
+@media (hover: none) and (pointer: coarse) {
+    .restaurant-card {
+        min-height: 44px;
+    }
+
+    .question-btn {
+        min-height: 44px;
+    }
+
+    .chat-input button {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .close-info {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* Improve scrolling on mobile */
+@supports (-webkit-overflow-scrolling: touch) {
+
+    .chat-messages,
+    .restaurant-list,
+    .info-section {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
