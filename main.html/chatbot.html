@@ -12,214 +12,192 @@
 
 <body>
     <div class="container">
-        <button id="unhide-button" class="cta-button" style="display: none;">
-            ←
-        </button>
-        <div class="header">
-            <h1>Trợ lý thân thiện</h1>
-            <p>Nhân viên hỗ trợ khách hàng được cá nhân hóa cho từng nhà hàng</p>
+    <button id="unhide-button" class="cta-button" style="display: none;">
+        ←
+    </button>
+    <div class="header">
+        <h1>Friendly Assistant</h1>
+        <p>Personalized customer support for each restaurant</p>
+    </div>
+
+    <div class="Introduction">
+        <div class="cta-wrapper">
+            <a href="#" class="cta-button" id="start-button">Get Started Now →</a>
+        </div>
+        <div class="features-title">
+            <span class="sparkle">✨</span>
+            <span>Key Features</span>
         </div>
 
-        <div class="Introduction">
-            <div class="cta-wrapper">
-                <a href="#" class="cta-button" id="start-button">Bắt Đầu Ngay →</a>
-            </div>
-            <div class="features-title">
-                <span class="sparkle">✨</span>
-                <span>Tính Năng Nổi Bật</span>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">🤖</span>
-                    <h3 class="feature-title">Trả Lời Tự Động</h3>
-                    <p class="feature-description">
-                        Trả lời khách hàng 24/7, xử lý hàng trăm câu hỏi cùng lúc với độ chính xác cao
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon">📅</span>
-                    <h3 class="feature-title">Đặt Bàn Tự Động</h3>
-                    <p class="feature-description">
-                        Khách hàng có thể đặt bàn, chọn thời gian, số lượng người một cách nhanh chóng qua chat
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon">💰</span>
-                    <h3 class="feature-title">Tiết Kiệm Chi Phí</h3>
-                    <p class="feature-description">
-                        Giảm 80% chi phí nhân sự chăm sóc khách hàng, không giới hạn số lượng tin nhắn
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon">🛍️</span>
-                    <h3 class="feature-title">Tư Vấn Sản Phẩm</h3>
-                    <p class="feature-description">
-                        Chatbot hiểu menu, giá cả, khuyến mãi để tư vấn và gợi ý sản phẩm phù hợp cho khách
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon">📱</span>
-                    <h3 class="feature-title">Đa Nền Tảng</h3>
-                    <p class="feature-description">
-                        Tích hợp Facebook, Zalo, Website, WhatsApp - Một chatbot cho mọi kênh bán hàng
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon">📊</span>
-                    <h3 class="feature-title">Báo Cáo Thống Kê</h3>
-                    <p class="feature-description">
-                        Theo dõi hiệu quả, phân tích hành vi khách hàng, tối ưu hóa chiến lược kinh doanh
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="main-content hidden">
-            <div class="left-section">
-                <div class="restaurant-list">
-                    <h2>Chọn nhà hàng</h2>
-                    <div class="restaurant-card" onclick="selectRestaurant('golden-dragon')">
-                        <div class="restaurant-card-header">
-                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=100&h=100&fit=crop&crop=center"
-                                alt="Golden Dragon" class="restaurant-avatar">
-                            <div class="restaurant-info">
-                                <h3>Golden Dragon</h3>
-                                <p>Nhà hàng Trung Hoa cao cấp</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="restaurant-card" onclick="selectRestaurant('pho-saigon')">
-                        <div class="restaurant-card-header">
-                            <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=100&h=100&fit=crop&crop=center"
-                                alt="Phở Sài Gòn" class="restaurant-avatar">
-                            <div class="restaurant-info">
-                                <h3>Phở Sài Gòn</h3>
-                                <p>Phở truyền thống Việt Nam</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="restaurant-card" onclick="selectRestaurant('italian-corner')">
-                        <div class="restaurant-card-header">
-                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&h=100&fit=crop&crop=center"
-                                alt="Italian Corner" class="restaurant-avatar">
-                            <div class="restaurant-info">
-                                <h3>Italian Corner</h3>
-                                <p>Nhà hàng Ý authentic</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-section" id="info-section">
-                    <h3 id="info-title">Thông tin nhà hàng</h3>
-                    <div class="info-details" id="info-details">
-                        Chọn một nhà hàng để xem thông tin chi tiết
-                    </div>
-                </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🤖</span>
+                <h3 class="feature-title">Auto Response</h3>
+                <p class="feature-description">
+                    Responds to customers 24/7, handles hundreds of questions at once with high accuracy
+                </p>
             </div>
 
-            <div class="chatbox" id="chatbox">
-                <div class="chat-header">
-                    <img src="" alt="Restaurant" class="chat-avatar" id="chat-avatar">
-                    <div>
-                        <div class="chat-title" id="chat-title">Chọn nhà hàng</div>
-                        <div class="chat-status">Luôn sẵn sàng phục vụ</div>
-                    </div>
-                </div>
+            <div class="feature-card">
+                <span class="feature-icon">📅</span>
+                <h3 class="feature-title">Auto Table Booking</h3>
+                <p class="feature-description">
+                    Customers can book tables, choose time and number of people quickly via chat
+                </p>
+            </div>
 
-                <div class="chat-messages" id="chat-messages">
-                    <div class="message">
-                        <img src="" alt="Bot" class="message-avatar">
-                        <div class="message-content">
-                            Xin chào! Tôi là trợ lý ảo. Hãy chọn nhà hàng để bắt đầu trò chuyện! 👋
-                        </div>
-                    </div>
-                </div>
+            <div class="feature-card">
+                <span class="feature-icon">💰</span>
+                <h3 class="feature-title">Cost Saving</h3>
+                <p class="feature-description">
+                    Save 80% of customer service costs with unlimited messaging
+                </p>
+            </div>
 
-                <div class="quick-questions">
-                    <h4>Bạn cần chúng tôi hỗ trợ điều gì?</h4>
-                    <div class="question-grid">
-                        <button class="question-btn" onclick="sendQuickQuestion('Tôi muốn đặt bàn')">🍽️ Đặt
-                            bàn</button>
-                        <button class="question-btn" onclick="sendQuickQuestion('Menu hôm nay có gì?')">📋 Xem
-                            menu</button>
-                        <button class="question-btn" onclick="sendQuickQuestion('Giờ mở cửa?')">🕐 Giờ mở cửa</button>
-                        <button class="question-btn" onclick="sendQuickQuestion('Địa chỉ nhà hàng?')">📍 Địa
-                            chỉ</button>
-                    </div>
-                </div>
+            <div class="feature-card">
+                <span class="feature-icon">🛍️</span>
+                <h3 class="feature-title">Product Recommendation</h3>
+                <p class="feature-description">
+                    The chatbot understands the menu, pricing, and promotions to suggest suitable products for customers
+                </p>
+            </div>
 
-                <div class="chat-input">
-                    <input type="text" id="message-input" placeholder="Nhập tin nhắn..."
-                        onkeypress="handleKeyPress(event)">
-                    <button onclick="sendMessage()">➤</button>
-                </div>
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3 class="feature-title">Multi-Platform</h3>
+                <p class="feature-description">
+                    Integrates with Facebook, Zalo, Website, WhatsApp - One chatbot for all sales channels
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3 class="feature-title">Analytics Reports</h3>
+                <p class="feature-description">
+                    Track performance, analyze customer behavior, and optimize business strategies
+                </p>
             </div>
         </div>
     </div>
 
+    <div class="main-content hidden">
+        <div class="left-section">
+            <div class="restaurant-list">
+                <h2>Select a Restaurant</h2>
+                <div class="restaurant-card" onclick="selectRestaurant('golden-dragon')">
+                    <div class="restaurant-card-header">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=100&h=100&fit=crop&crop=center"
+                            alt="Golden Dragon" class="restaurant-avatar">
+                        <div class="restaurant-info">
+                            <h3>Golden Dragon</h3>
+                            <p>Premium Chinese Restaurant</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="restaurant-card" onclick="selectRestaurant('pho-saigon')">
+                    <div class="restaurant-card-header">
+                        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=100&h=100&fit=crop&crop=center"
+                            alt="Pho Sai Gon" class="restaurant-avatar">
+                        <div class="restaurant-info">
+                            <h3>Pho Sai Gon</h3>
+                            <p>Traditional Vietnamese Pho</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="restaurant-card" onclick="selectRestaurant('italian-corner')">
+                    <div class="restaurant-card-header">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&h=100&fit=crop&crop=center"
+                            alt="Italian Corner" class="restaurant-avatar">
+                        <div class="restaurant-info">
+                            <h3>Italian Corner</h3>
+                            <p>Authentic Italian Restaurant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section" id="info-section">
+                <h3 id="info-title">Restaurant Information</h3>
+                <div class="info-details" id="info-details">
+                    Please select a restaurant to see detailed information
+                </div>
+            </div>
+        </div>
+
+        <div class="chatbox" id="chatbox">
+            <div class="chat-header">
+                <img src="" alt="Restaurant" class="chat-avatar" id="chat-avatar">
+                <div>
+                    <div class="chat-title" id="chat-title">Select a Restaurant</div>
+                    <div class="chat-status">Always ready to serve</div>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chat-messages">
+                <div class="message">
+                    <img src="" alt="Bot" class="message-avatar">
+                    <div class="message-content">
+                        Hello! I’m your virtual assistant. Please select a restaurant to start chatting! 👋
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-questions">
+                <h4>How can we assist you?</h4>
+                <div class="question-grid">
+                    <button class="question-btn" onclick="sendQuickQuestion('I want to book a table')">🍽️ Book a Table</button>
+                    <button class="question-btn" onclick="sendQuickQuestion('What’s on today’s menu?')">📋 View Menu</button>
+                    <button class="question-btn" onclick="sendQuickQuestion('What are the opening hours?')">🕐 Opening Hours</button>
+                    <button class="question-btn" onclick="sendQuickQuestion('What’s the restaurant address?')">📍 Address</button>
+                </div>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Enter your message..."
+                    onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+    </div>
+</div>
     <script>
         const restaurants = {
-            'golden-dragon': {
-                name: 'Golden Dragon',
-                avatar: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=100&h=100&fit=crop&crop=center',
-                info: `<strong>Golden Dragon - Nhà hàng Trung Hoa cao cấp</strong><br><br>
-                       <strong>Địa chỉ:</strong> 123 Đường Nguyễn Huệ, Quận 1, TP.HCM<br>
-                       <strong>Giờ mở cửa:</strong> 10:00 - 22:00 (Thứ 2 - Chủ nhật)<br>
-                       <strong>Số điện thoại:</strong> (028) 3822 1234<br>
-                       <strong>Đặc sản:</strong> Vịt quay Bắc Kinh, Dim sum, Cơm chiên Dương Châu<br>
-                       <strong>Giá trung bình:</strong> 300.000 - 500.000 VNĐ/người<br>
-                       <strong>Dịch vụ:</strong> Đặt bàn trước, Phòng riêng, Tiệc cưới`,
-                responses: {
-                    'Tôi muốn đặt bàn': 'Chào bạn! Tôi có thể giúp bạn đặt bàn tại Golden Dragon. Bạn muốn đặt bàn cho mấy người và vào lúc nào ạ? 📞',
-                    'Menu hôm nay có gì?': 'Menu hôm nay có: Vịt quay Bắc Kinh (450k), Dim sum set (280k), Cơm chiên Dương Châu (120k), Tôm hùm sốt XO (650k). Bạn có muốn xem menu đầy đủ không? 🍜',
-                    'Giờ mở cửa?': 'Golden Dragon mở cửa từ 10:00 - 22:00 hàng ngày. Hiện tại chúng tôi đang mở cửa và sẵn sàng phục vụ bạn! 🕐',
-                    'Địa chỉ nhà hàng?': 'Golden Dragon tọa lạc tại 123 Đường Nguyễn Huệ, Quận 1, TP.HCM. Rất gần chợ Bến Thành, bạn có thể đi bộ hoặc taxi đến dễ dàng! 📍'
-                }
-            },
-            'pho-saigon': {
-                name: 'Phở Sài Gòn',
-                avatar: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=100&h=100&fit=crop&crop=center',
-                info: `<strong>Phở Sài Gòn - Phở truyền thống Việt Nam</strong><br><br>
-                       <strong>Địa chỉ:</strong> 456 Đường Lê Lợi, Quận 1, TP.HCM<br>
-                       <strong>Giờ mở cửa:</strong> 06:00 - 22:00 (Thứ 2 - Chủ nhật)<br>
-                       <strong>Số điện thoại:</strong> (028) 3829 5678<br>
-                       <strong>Đặc sản:</strong> Phở bò, Phở gà, Bún bò Huế, Chả cá<br>
-                       <strong>Giá trung bình:</strong> 50.000 - 120.000 VNĐ/bát<br>
-                       <strong>Dịch vụ:</strong> Mang về, Giao hàng, Đặt bàn online`,
-                responses: {
-                    'Tôi muốn đặt bàn': 'Chào bạn! Phở Sài Gòn luôn sẵn sàng phục vụ. Bạn muốn đặt bàn cho mấy người và khi nào ạ? Chúng tôi có thể sắp xếp ngay! 🍜',
-                    'Menu hôm nay có gì?': 'Menu hôm nay: Phở bò tái (65k), Phở gà (60k), Bún bò Huế (70k), Chả cá Lã Vọng (85k), Nước mía (15k). Tất cả đều tươi ngon! 🥢',
-                    'Giờ mở cửa?': 'Phở Sài Gòn mở cửa từ 6:00 sáng đến 22:00 tối hàng ngày. Phở sáng đặc biệt ngon, bạn nên thử! ☀️',
-                    'Địa chỉ nhà hàng?': 'Phở Sài Gòn ở 456 Đường Lê Lợi, Quận 1, TP.HCM. Gần Nhà hát Thành phố, rất thuận tiện! 🏢'
-                }
-            },
-            'italian-corner': {
-                name: 'Italian Corner',
-                avatar: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&h=100&fit=crop&crop=center',
-                info: `<strong>Italian Corner - Nhà hàng Ý authentic</strong><br><br>
-                       <strong>Địa chỉ:</strong> 789 Đường Đồng Khởi, Quận 1, TP.HCM<br>
-                       <strong>Giờ mở cửa:</strong> 11:00 - 23:00 (Thứ 2 - Chủ nhật)<br>
-                       <strong>Số điện thoại:</strong> (028) 3824 9012<br>
-                       <strong>Đặc sản:</strong> Pizza, Pasta, Risotto, Tiramisu<br>
-                       <strong>Giá trung bình:</strong> 200.000 - 400.000 VNĐ/người<br>
-                       <strong>Dịch vụ:</strong> Không gian lãng mạn, Rượu vang Ý, Đặt tiệc sinh nhật`,
-                responses: {
-                    'Tôi muốn đặt bàn': 'Ciao! Chào mừng bạn đến Italian Corner. Tôi có thể giúp bạn đặt bàn. Bạn muốn đặt cho mấy người và thời gian nào ạ? 🍕',
-                    'Menu hôm nay có gì?': 'Menu hôm nay: Pizza Margherita (180k), Pasta Carbonara (220k), Risotto Mushroom (260k), Tiramisu (95k). Tất cả được làm theo công thức Ý! 🍝',
-                    'Giờ mở cửa?': 'Italian Corner mở cửa từ 11:00 - 23:00 hàng ngày. Buổi tối có không gian lãng mạn với nến và nhạc Ý! 🕯️',
-                    'Địa chỉ nhà hàng?': 'Italian Corner tại 789 Đường Đồng Khởi, Quận 1, TP.HCM. View sông Sài Gòn tuyệt đẹp, rất lý tưởng cho hẹn hò! 🌅'
-                }
-            }
-        };
+    'golden-dragon': {
+        name: 'Golden Dragon',
+        avatar: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=100&h=100&fit=crop&crop=center',
+        info: `<strong>Golden Dragon - Premium Chinese Restaurant</strong><br><br>
+               <strong>Address:</strong> 123 Nguyen Hue Street, District 1, Ho Chi Minh City<br>
+               <strong>Opening Hours:</strong> 10:00 AM - 10:00 PM (Monday - Sunday)<br>
+               <strong>Phone:</strong> (028) 3822 1234<br>
+               <strong>Specialties:</strong> Peking Duck, Dim Sum, Yangzhou Fried Rice<br>
+               <strong>Average Price:</strong> 300,000 - 500,000 VND/person<br>
+               <strong>Services:</strong> Table reservation, Private rooms, Wedding events`,
+    },
+    'pho-saigon': {
+        name: 'Pho Sai Gon',
+        avatar: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=100&h=100&fit=crop&crop=center',
+        info: `<strong>Pho Sai Gon - Traditional Vietnamese Pho</strong><br><br>
+               <strong>Address:</strong> 456 Le Loi Street, District 1, Ho Chi Minh City<br>
+               <strong>Opening Hours:</strong> 06:00 AM - 10:00 PM (Monday - Sunday)<br>
+               <strong>Phone:</strong> (028) 3829 5678<br>
+               <strong>Specialties:</strong> Beef Pho, Chicken Pho, Hue-style Noodle Soup, Grilled Fish Cake<br>
+               <strong>Average Price:</strong> 50,000 - 120,000 VND/bowl<br>
+               <strong>Services:</strong> Takeaway, Delivery, Online reservations`,
+    },
+    'italian-corner': {
+        name: 'Italian Corner',
+        avatar: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&h=100&fit=crop&crop=center',
+        info: `<strong>Italian Corner - Authentic Italian Restaurant</strong><br><br>
+               <strong>Address:</strong> 789 Dong Khoi Street, District 1, Ho Chi Minh City<br>
+               <strong>Opening Hours:</strong> 11:00 AM - 11:00 PM (Monday - Sunday)<br>
+               <strong>Phone:</strong> (028) 3824 9012<br>
+               <strong>Specialties:</strong> Pizza, Pasta, Risotto, Tiramisu<br>
+               <strong>Average Price:</strong> 200,000 - 400,000 VND/person<br>
+               <strong>Services:</strong> Romantic space, Italian wine, Birthday parties`,
+    }
+};
 
         let currentRestaurant = null;
 
@@ -254,105 +232,131 @@
             chatbox.classList.add('active');
 
             // Reset chat messages
-            chatMessages.innerHTML = `
-                <div class="message">
-                    <img src="${currentRestaurant.avatar}" alt="Bot" class="message-avatar">
-                    <div class="message-content">
-                        Xin chào! Tôi là trợ lý ảo của ${currentRestaurant.name}. Tôi có thể giúp gì cho bạn hôm nay? 😊
-                    </div>
-                </div>
-            `;
-        }
+chatMessages.innerHTML = `
+    <div class="message">
+        <img src="${currentRestaurant.avatar}" alt="Bot" class="message-avatar">
+        <div class="message-content">
+            Hello! I'm the virtual assistant of ${currentRestaurant.name}. How can I help you today? 😊
+        </div>
+    </div>
+`;
+
 
         function closeInfo() {
             document.getElementById('info-section').classList.remove('active');
         }
+        //Tạo chat ID
+        const chatId = generateChatId();
 
-        function sendQuickQuestion(question) {
-            if (!currentRestaurant) {
-                alert('Vui lòng chọn nhà hàng trước!');
-                return;
+        function generateChatId() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let id = '';
+            for (let i = 0; i < 7; i++) {
+                id += chars.charAt(Math.floor(Math.random() * chars.length));
             }
-
-            addMessage(question, true);
-
-            setTimeout(() => {
-                const response = currentRestaurant.responses[question] || 'Xin lỗi, tôi chưa hiểu câu hỏi này. Bạn có thể hỏi cách khác không?';
-                addMessage(response, false);
-            }, 1000);
+            return id;
         }
+        //send quick question
+        function sendQuickQuestion(message) {
 
-        function sendMessage() {
-            const input = document.getElementById('message-input');
-            const message = input.value.trim();
-
-            if (!message) return;
-            if (!currentRestaurant) {
-                alert('Vui lòng chọn nhà hàng trước!');
-                return;
-            }
-
-            addMessage(message, true); // Hiển thị message người dùng
-            input.value = '';
+            addMessage(message, true);
 
             const WEBHOOK_URL = 'https://n8n.kpsimple.store/webhook/9c35f315-03c5-4569-8789-ea6d6c8543e2';
 
-            // Gửi message qua query param (GET)
-            const urlWithParams = `${WEBHOOK_URL}?message=${encodeURIComponent(message)}&restaurant=${encodeURIComponent(currentRestaurant.name || 'golden-dragon')}`;
+            const urlWithParams = `${WEBHOOK_URL}?message=${encodeURIComponent(message)}&restaurant=${encodeURIComponent(currentRestaurant.name || 'golden-dragon')}&chat_id=${encodeURIComponent(chatId)}`;
 
             fetch(urlWithParams)
-                .then(response => {
-                    return response.text().then(text => {
-                        if (!response.ok) {
-                            throw new Error(`Lỗi server (${response.status}): ${text}`);
-                        }
+    .then(response => {
+        return response.text().then(text => {
+            if (!response.ok) {
+                throw new Error(`Server error (${response.status}): ${text}`);
+            }
 
-                        try {
-                            return JSON.parse(text);
-                        } catch (parseError) {
-                            throw new Error('Server trả về dữ liệu không hợp lệ');
-                        }
-                    });
-                })
-                .then(data => {
-                    let reply = null;
+            try {
+                return JSON.parse(text);
+            } catch (parseError) {
+                throw new Error('Invalid response from server');
+            }
+        });
+    })
+    .then(data => {
+        let reply = null;
 
-                    if (Array.isArray(data)) {
-                        if (data.length > 0 && data[0].reply) {
-                            reply = data[0].reply;
-                        }
-                    } else if (data && data.reply) {
-                        reply = data.reply;
-                    }
-
-                    if (reply) {
-                        addMessage(reply, false);
-                    } else {
-                        throw new Error('Không tìm thấy phản hồi hợp lệ từ webhook');
-                    }
-                })
-                .catch(error => {
-                    console.error('Lỗi webhook:', error);
-                    addMessage("Xin lỗi, hệ thống gặp lỗi. Vui lòng thử lại sau.", false);
-                });
-            setTimeout(() => {
-                let response = 'Cảm ơn bạn đã nhắn tin! Đội ngũ của chúng tôi sẽ phản hồi sớm nhất có thể. Bạn có thể thử các câu hỏi phổ biến bên dưới! 😊';
-
-                // Simple keyword matching
-                if (message.toLowerCase().includes('đặt bàn')) {
-                    response = currentRestaurant.responses['Tôi muốn đặt bàn'];
-                } else if (message.toLowerCase().includes('menu') || message.toLowerCase().includes('món')) {
-                    response = currentRestaurant.responses['Menu hôm nay có gì?'];
-                } else if (message.toLowerCase().includes('giờ') || message.toLowerCase().includes('mở cửa')) {
-                    response = currentRestaurant.responses['Giờ mở cửa?'];
-                } else if (message.toLowerCase().includes('địa chỉ') || message.toLowerCase().includes('ở đâu')) {
-                    response = currentRestaurant.responses['Địa chỉ nhà hàng?'];
-                }
-
-                addMessage(response, false);
-            }, 1000);
+        if (Array.isArray(data)) {
+            if (data.length > 0 && data[0].reply) {
+                reply = data[0].reply;
+            }
+        } else if (data && data.reply) {
+            reply = data.reply;
         }
 
+        if (reply) {
+            addMessage(reply, false);
+        } else {
+            throw new Error('No valid reply found from webhook');
+        }
+    })
+    .catch(error => {
+        console.error('Webhook error:', error);
+        addMessage("Sorry, the system encountered an error. Please try again later.", false);
+    });
+
+    function sendMessage() {
+    const input = document.getElementById('message-input');
+    const message = input.value.trim();
+
+    if (!message) return;
+
+    addMessage(message, true); // Display user's message
+    input.value = '';
+
+    const WEBHOOK_URL = 'https://n8n.kpsimple.store/webhook/9c35f315-03c5-4569-8789-ea6d6c8543e2';
+
+    // Send message using query parameters (GET)
+    const urlWithParams = `${WEBHOOK_URL}?message=${encodeURIComponent(message)}&restaurant=${encodeURIComponent(currentRestaurant.name || 'golden-dragon')}&chat_id=${encodeURIComponent(chatId)}`;
+
+    fetch(urlWithParams)
+        .then(response => {
+            return response.text().then(text => {
+                if (!response.ok) {
+                    throw new Error(`Server error (${response.status}): ${text}`);
+                }
+
+                try {
+                    return JSON.parse(text);
+                } catch (parseError) {
+                    throw new Error('Invalid data returned from server');
+                }
+            });
+        })
+        .then(data => {
+            let reply = null;
+
+            if (Array.isArray(data)) {
+                if (data.length > 0 && data[0].reply) {
+                    reply = data[0].reply;
+                }
+            } else if (data && data.reply) {
+                reply = data.reply;
+            }
+
+            if (reply) {
+                addMessage(reply, false);
+            } else {
+                throw new Error('No valid reply received from webhook');
+            }
+        })
+        .catch(error => {
+            console.error('Webhook error:', error);
+            addMessage("Sorry, the system encountered an error. Please try again later.", false);
+        });
+
+    setTimeout(() => {
+        let response = "Thank you for your message! Our team will get back to you as soon as possible. You can also try some popular questions below! 😊";
+
+        addMessage(response, false);
+    }, 1000);
+}
 
 
         function addMessage(message, isUser) {
@@ -360,9 +364,9 @@
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${isUser ? 'user' : ''}`;
 
-            const avatar = isUser ? '../Support.jpg' : currentRestaurant.avatar;
+            const avatar = isUser ? '/Picture/Support.jpg' : currentRestaurant.avatar;
 
-            const content = isUser ? message : marked.parse(message); // Chuyển markdown sang HTML nếu là bot
+            const content = isUser ? message : marked.parse(message);
 
             messageDiv.innerHTML = `
             <img src="${avatar}" alt="${isUser ? 'User' : 'Bot'}" class="message-avatar">
@@ -385,7 +389,6 @@
             document.getElementById('unhide-button').style.display = 'block';
         });
 
-        // Nút "← Quay lại phần giới thiệu"
         document.getElementById('unhide-button').addEventListener('click', function () {
             document.querySelector('.Introduction').style.display = 'block';
             document.querySelector('.main-content').classList.add('hidden');
