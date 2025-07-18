@@ -1,6 +1,6 @@
 // button.js - Tạo button navigation đơn giản
 function goToHomePage() {
-    window.location.href = '/Portfolio/Home.html';
+    window.location.href = 'index.html';
 }
 
 // Tạo button và thêm vào trang
