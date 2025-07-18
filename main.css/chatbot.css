@@ -144,7 +144,7 @@ body {
     padding: 16px;
     display: none;
     overflow-y: auto;
-    max-height: 300px;
+    max-height: 277px;
 }
 
 .info-section.active {
