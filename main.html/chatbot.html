@@ -360,7 +360,7 @@
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${isUser ? 'user' : ''}`;
 
-            const avatar = isUser ? '/Picture/Support.jpg' : currentRestaurant.avatar;
+            const avatar = isUser ? '../Support.jpg' : currentRestaurant.avatar;
 
             const content = isUser ? message : marked.parse(message); // Chuyển markdown sang HTML nếu là bot
 
