@@ -1,0 +1,469 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 16px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 6px 24px rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    height: 750px;
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 1.8em;
+    margin-bottom: 6px;
+    text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.3);
+}
+
+.header p {
+    font-size: 1em;
+    opacity: 0.9;
+}
+
+.main-content {
+    gap: 45px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 680px;
+    width: 400px;
+    margin-left: 20px;
+}
+
+.restaurant-list {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 14.4px;
+    padding: 14.4px;
+    overflow-y: auto;
+    height: fit-content;
+}
+
+.restaurant-list h2 {
+    color: #333;
+    margin-bottom: 14px;
+    font-size: 1.4em;
+}
+
+.restaurant-card {
+    background: white;
+    border-radius: 12px;
+    padding: 9.6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2.4px solid transparent;
+    box-shadow: 0 3.6px 9.6px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-card:hover {
+    transform: translateY(-1.8px);
+    box-shadow: 0 6px 19.2px rgba(0, 0, 0, 0.12);
+}
+
+.restaurant-card.active {
+    border-color: #4267B2;
+    background: #f0f2f5;
+}
+
+.restaurant-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14.4px;
+}
+
+.restaurant-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.restaurant-info h3 {
+    color: #333;
+    font-size: 1.14em;
+    margin-bottom: 4.8px;
+}
+
+.restaurant-info p {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.info-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 16px;
+    display: none;
+}
+
+.info-section.active {
+    display: block;
+    max-height: fit-content;
+    margin-top: 20px;
+    height: 100%;
+    flex: 1 1 auto;
+}
+
+.info-section h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.info-details {
+    color: #555;
+    line-height: 1.5;
+}
+
+.info-details strong {
+    color: #333;
+}
+
+.close-info {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #666;
+}
+
+.chatbox {
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 3px 16px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    width: 450px;
+    max-width: 100%;
+}
+
+.chatbox.active {
+    display: flex;
+    height: 620px;
+    width: 670px;
+}
+
+.chat-header {
+    background: #4267B2;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.chat-title {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.chat-status {
+    font-size: 0.75em;
+    opacity: 0.9;
+}
+
+.chat-messages {
+    padding: 14px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    flex: 1;
+    min-height: 0;
+}
+
+.message {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.message.user {
+    flex-direction: row-reverse;
+}
+
+.message-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.message-content {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 16px;
+    max-width: 70%;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    text-align: left; 
+}
+
+.message.user .message-content {
+    background: #4267B2;
+    color: white;
+}
+
+.quick-questions {
+    padding: 12px 14px;
+    background: white;
+    border-top: 1px solid #e4e6ea;
+}
+
+.quick-questions h4 {
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 0.85em;
+}
+
+.question-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    justify-content: flex-start;
+}
+
+.question-btn {
+    background: #f0f2f5;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.8em;
+    color: #333;
+    width: 150px;
+}
+
+.question-btn:hover {
+    background: #e4e6ea;
+    transform: translateY(-1px);
+}
+
+.chat-input {
+    display: flex;
+    padding: 12px 14px;
+    background: white;
+    border-top: 1px solid #e4e6ea;
+    border-radius: 0 0 12px 12px;
+}
+
+.chat-input input {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    padding: 8px 12px;
+    outline: none;
+    font-size: 0.85em;
+}
+
+.chat-input button {
+    background: #4267B2;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.cta-button {
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    color: white;
+    padding: 14px 36px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 107, 107, 0.4);
+}
+
+.features-title {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cột cố định */
+    gap: 20px;
+    margin-top: 24px;
+    height: 500px;
+    overflow: visible;
+    padding-right: 5px;
+    max-width: 100%;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.feature-title {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.feature-description {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.sparkle {
+    color: #feca57;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .left-section {
+        order: 1;
+        width: 100%;
+    }
+
+    .chatbox {
+        order: 2;
+        width: 100%;
+        min-height: 480px;
+    }
+}
+
+.unhide-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: none;
+    z-index: 9999;
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: p
+    ointer;
+}
+#unhide-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+    display: none;
+}
+.cta-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-bottom: -20px;
+  }
+
+
+
+  .message-content ul,
+.message-content ol {
+  margin: 0.5em 0 0.5em 1.2em;
+  padding-left: 1em;
+  list-style-position: inside; /* Giữ bullet nằm trong khung */
+  margin:0;
+  padding:0;
+}
+
+.message-content li {
+  margin-bottom: 0.3em;
+  line-height: 1.4;
+}
+
+.message-content strong {
+  font-weight: bold;
+}
