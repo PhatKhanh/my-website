@@ -12,192 +12,197 @@
 
 <body>
     <div class="container">
-    <button id="unhide-button" class="cta-button" style="display: none;">
-        ←
-    </button>
-    <div class="header">
-        <h1>Friendly Assistant</h1>
-        <p>Personalized customer support for each restaurant</p>
-    </div>
-
-    <div class="Introduction">
-        <div class="cta-wrapper">
-            <a href="#" class="cta-button" id="start-button">Get Started Now →</a>
-        </div>
-        <div class="features-title">
-            <span class="sparkle">✨</span>
-            <span>Key Features</span>
+        <button id="unhide-button" class="cta-button" style="display: none;">
+            ←
+        </button>
+        <div class="header">
+            <h1>Friendly Assistant</h1>
+            <p>Personalized customer support staff for each restaurant</p>
         </div>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon">🤖</span>
-                <h3 class="feature-title">Auto Response</h3>
-                <p class="feature-description">
-                    Responds to customers 24/7, handles hundreds of questions at once with high accuracy
-                </p>
+        <div class="Introduction">
+            <div class="cta-wrapper">
+                <a href="#" class="cta-button" id="start-button">Start Now →</a>
+            </div>
+            <div class="features-title">
+                <span class="sparkle">✨</span>
+                <span>Key Features</span>
             </div>
 
-            <div class="feature-card">
-                <span class="feature-icon">📅</span>
-                <h3 class="feature-title">Auto Table Booking</h3>
-                <p class="feature-description">
-                    Customers can book tables, choose time and number of people quickly via chat
-                </p>
-            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🤖</span>
+                    <h3 class="feature-title">Automatic Responses</h3>
+                    <p class="feature-description">
+                        24/7 customer support, handling hundreds of queries simultaneously with high accuracy
+                    </p>
+                </div>
 
-            <div class="feature-card">
-                <span class="feature-icon">💰</span>
-                <h3 class="feature-title">Cost Saving</h3>
-                <p class="feature-description">
-                    Save 80% of customer service costs with unlimited messaging
-                </p>
-            </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📅</span>
+                    <h3 class="feature-title">Auto Table Booking</h3>
+                    <p class="feature-description">
+                        Customers can quickly book tables, select time and number of people via chat
+                    </p>
+                </div>
 
-            <div class="feature-card">
-                <span class="feature-icon">🛍️</span>
-                <h3 class="feature-title">Product Recommendation</h3>
-                <p class="feature-description">
-                    The chatbot understands the menu, pricing, and promotions to suggest suitable products for customers
-                </p>
-            </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💰</span>
+                    <h3 class="feature-title">Cost Saving</h3>
+                    <p class="feature-description">
+                        Reduce 80% of customer service staffing costs, unlimited messages
+                    </p>
+                </div>
 
-            <div class="feature-card">
-                <span class="feature-icon">📱</span>
-                <h3 class="feature-title">Multi-Platform</h3>
-                <p class="feature-description">
-                    Integrates with Facebook, Zalo, Website, WhatsApp - One chatbot for all sales channels
-                </p>
-            </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🛍️</span>
+                    <h3 class="feature-title">Product Consultation</h3>
+                    <p class="feature-description">
+                        Chatbot understands menu, prices, promotions to advise suitable products
+                    </p>
+                </div>
 
-            <div class="feature-card">
-                <span class="feature-icon">📊</span>
-                <h3 class="feature-title">Analytics Reports</h3>
-                <p class="feature-description">
-                    Track performance, analyze customer behavior, and optimize business strategies
-                </p>
+                <div class="feature-card">
+                    <span class="feature-icon">📱</span>
+                    <h3 class="feature-title">Multi-platform</h3>
+                    <p class="feature-description">
+                        Integrates with Facebook, Zalo, Website, WhatsApp - One chatbot for all sales channels
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h3 class="feature-title">Analytics Reports</h3>
+                    <p class="feature-description">
+                        Track performance, analyze customer behavior, optimize business strategy
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="main-content hidden">
-        <div class="left-section">
-            <div class="restaurant-list">
-                <h2>Select a Restaurant</h2>
-                <div class="restaurant-card" onclick="selectRestaurant('golden-dragon')">
-                    <div class="restaurant-card-header">
-                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=100&h=100&fit=crop&crop=center"
-                            alt="Golden Dragon" class="restaurant-avatar">
-                        <div class="restaurant-info">
-                            <h3>Golden Dragon</h3>
-                            <p>Premium Chinese Restaurant</p>
+        <div class="main-content hidden">
+            <div class="left-section">
+                <div class="restaurant-list">
+                    <h2>Select a restaurant</h2>
+                    <div class="restaurant-card" onclick="selectRestaurant('golden-dragon')">
+                        <div class="restaurant-card-header">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=100&h=100&fit=crop&crop=center"
+                                alt="Golden Dragon" class="restaurant-avatar">
+                            <div class="restaurant-info">
+                                <h3>Golden Dragon</h3>
+                                <p>Premium Chinese restaurant</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card" onclick="selectRestaurant('pho-saigon')">
+                        <div class="restaurant-card-header">
+                            <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=100&h=100&fit=crop&crop=center"
+                                alt="Phở Sài Gòn" class="restaurant-avatar">
+                            <div class="restaurant-info">
+                                <h3>Saigon Pho</h3>
+                                <p>Traditional Vietnamese Pho</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card" onclick="selectRestaurant('italian-corner')">
+                        <div class="restaurant-card-header">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&h=100&fit=crop&crop=center"
+                                alt="Italian Corner" class="restaurant-avatar">
+                            <div class="restaurant-info">
+                                <h3>Italian Corner</h3>
+                                <p>Authentic Italian restaurant</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="restaurant-card" onclick="selectRestaurant('pho-saigon')">
-                    <div class="restaurant-card-header">
-                        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=100&h=100&fit=crop&crop=center"
-                            alt="Pho Sai Gon" class="restaurant-avatar">
-                        <div class="restaurant-info">
-                            <h3>Pho Sai Gon</h3>
-                            <p>Traditional Vietnamese Pho</p>
+                <div class="info-section" id="info-section">
+                    <h3 id="info-title">Restaurant Information</h3>
+                    <div class="info-details" id="info-details">
+                        Select a restaurant to view details
+                    </div>
+                </div>
+            </div>
+
+            <div class="chatbox" id="chatbox">
+                <div class="chat-header">
+                    <img src="" alt="Restaurant" class="chat-avatar" id="chat-avatar">
+                    <div>
+                        <div class="chat-title" id="chat-title">Select a restaurant</div>
+                        <div class="chat-status">Always ready to serve</div>
+                    </div>
+                </div>
+
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message">
+                        <img src="" alt="Bot" class="message-avatar">
+                        <div class="message-content">
+                            Hello! I'm your virtual assistant. Please select a restaurant to start chatting! 👋
                         </div>
                     </div>
                 </div>
 
-                <div class="restaurant-card" onclick="selectRestaurant('italian-corner')">
-                    <div class="restaurant-card-header">
-                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&h=100&fit=crop&crop=center"
-                            alt="Italian Corner" class="restaurant-avatar">
-                        <div class="restaurant-info">
-                            <h3>Italian Corner</h3>
-                            <p>Authentic Italian Restaurant</p>
-                        </div>
+                <div class="quick-questions">
+                    <h4>How can we help you today?</h4>
+                    <div class="question-grid">
+                        <button class="question-btn" onclick="sendQuickQuestion('I want to book a table')">🍽️ Book
+                            table</button>
+                        <button class="question-btn" onclick="sendQuickQuestion('What's on today's menu?')">📋 View
+                            menu</button>
+                        <button class="question-btn" onclick="sendQuickQuestion('Opening hours?')">🕐 Opening
+                            hours</button>
+                        <button class="question-btn" onclick="sendQuickQuestion('Restaurant address?')">📍
+                            Address</button>
                     </div>
                 </div>
-            </div>
 
-            <div class="info-section" id="info-section">
-                <h3 id="info-title">Restaurant Information</h3>
-                <div class="info-details" id="info-details">
-                    Please select a restaurant to see detailed information
+                <div class="chat-input">
+                    <input type="text" id="message-input" placeholder="Type your message..."
+                        onkeypress="handleKeyPress(event)">
+                    <button onclick="sendMessage()">➤</button>
                 </div>
-            </div>
-        </div>
-
-        <div class="chatbox" id="chatbox">
-            <div class="chat-header">
-                <img src="" alt="Restaurant" class="chat-avatar" id="chat-avatar">
-                <div>
-                    <div class="chat-title" id="chat-title">Select a Restaurant</div>
-                    <div class="chat-status">Always ready to serve</div>
-                </div>
-            </div>
-
-            <div class="chat-messages" id="chat-messages">
-                <div class="message">
-                    <img src="" alt="Bot" class="message-avatar">
-                    <div class="message-content">
-                        Hello! I’m your virtual assistant. Please select a restaurant to start chatting! 👋
-                    </div>
-                </div>
-            </div>
-
-            <div class="quick-questions">
-                <h4>How can we assist you?</h4>
-                <div class="question-grid">
-                    <button class="question-btn" onclick="sendQuickQuestion('I want to book a table')">🍽️ Book a Table</button>
-                    <button class="question-btn" onclick="sendQuickQuestion('What’s on today’s menu?')">📋 View Menu</button>
-                    <button class="question-btn" onclick="sendQuickQuestion('What are the opening hours?')">🕐 Opening Hours</button>
-                    <button class="question-btn" onclick="sendQuickQuestion('What’s the restaurant address?')">📍 Address</button>
-                </div>
-            </div>
-
-            <div class="chat-input">
-                <input type="text" id="message-input" placeholder="Enter your message..."
-                    onkeypress="handleKeyPress(event)">
-                <button onclick="sendMessage()">➤</button>
             </div>
         </div>
     </div>
-</div>
+
     <script>
         const restaurants = {
-    'golden-dragon': {
-        name: 'Golden Dragon',
-        avatar: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=100&h=100&fit=crop&crop=center',
-        info: `<strong>Golden Dragon - Premium Chinese Restaurant</strong><br><br>
-               <strong>Address:</strong> 123 Nguyen Hue Street, District 1, Ho Chi Minh City<br>
-               <strong>Opening Hours:</strong> 10:00 AM - 10:00 PM (Monday - Sunday)<br>
-               <strong>Phone:</strong> (028) 3822 1234<br>
-               <strong>Specialties:</strong> Peking Duck, Dim Sum, Yangzhou Fried Rice<br>
-               <strong>Average Price:</strong> 300,000 - 500,000 VND/person<br>
-               <strong>Services:</strong> Table reservation, Private rooms, Wedding events`,
-    },
-    'pho-saigon': {
-        name: 'Pho Sai Gon',
-        avatar: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=100&h=100&fit=crop&crop=center',
-        info: `<strong>Pho Sai Gon - Traditional Vietnamese Pho</strong><br><br>
-               <strong>Address:</strong> 456 Le Loi Street, District 1, Ho Chi Minh City<br>
-               <strong>Opening Hours:</strong> 06:00 AM - 10:00 PM (Monday - Sunday)<br>
-               <strong>Phone:</strong> (028) 3829 5678<br>
-               <strong>Specialties:</strong> Beef Pho, Chicken Pho, Hue-style Noodle Soup, Grilled Fish Cake<br>
-               <strong>Average Price:</strong> 50,000 - 120,000 VND/bowl<br>
-               <strong>Services:</strong> Takeaway, Delivery, Online reservations`,
-    },
-    'italian-corner': {
-        name: 'Italian Corner',
-        avatar: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&h=100&fit=crop&crop=center',
-        info: `<strong>Italian Corner - Authentic Italian Restaurant</strong><br><br>
-               <strong>Address:</strong> 789 Dong Khoi Street, District 1, Ho Chi Minh City<br>
-               <strong>Opening Hours:</strong> 11:00 AM - 11:00 PM (Monday - Sunday)<br>
-               <strong>Phone:</strong> (028) 3824 9012<br>
-               <strong>Specialties:</strong> Pizza, Pasta, Risotto, Tiramisu<br>
-               <strong>Average Price:</strong> 200,000 - 400,000 VND/person<br>
-               <strong>Services:</strong> Romantic space, Italian wine, Birthday parties`,
-    }
-};
+            'golden-dragon': {
+                name: 'Golden Dragon',
+                avatar: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=100&h=100&fit=crop&crop=center',
+                info: `<strong>Golden Dragon - Premium Chinese Restaurant</strong><br><br>
+                       <strong>Address:</strong> 123 Nguyen Hue Street, District 1, HCMC<br>
+                       <strong>Opening hours:</strong> 10:00 - 22:00 (Monday - Sunday)<br>
+                       <strong>Phone:</strong> (028) 3822 1234<br>
+                       <strong>Specialties:</strong> Peking duck, Dim sum, Yangzhou fried rice<br>
+                       <strong>Average price:</strong> 300,000 - 500,000 VND/person<br>
+                       <strong>Services:</strong> Advance booking, Private rooms, Wedding parties`,
+            },
+            'pho-saigon': {
+                name: 'Saigon Pho',
+                avatar: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=100&h=100&fit=crop&crop=center',
+                info: `<strong>Saigon Pho - Traditional Vietnamese Pho</strong><br><br>
+                       <strong>Address:</strong> 456 Le Loi Street, District 1, HCMC<br>
+                       <strong>Opening hours:</strong> 06:00 - 22:00 (Monday - Sunday)<br>
+                       <strong>Phone:</strong> (028) 3829 5678<br>
+                       <strong>Specialties:</strong> Beef pho, Chicken pho, Hue beef noodle, Fish cake<br>
+                       <strong>Average price:</strong> 50,000 - 120,000 VND/bowl<br>
+                       <strong>Services:</strong> Takeaway, Delivery, Online booking`,
+            },
+            'italian-corner': {
+                name: 'Italian Corner',
+                avatar: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100&h=100&fit=crop&crop=center',
+                info: `<strong>Italian Corner - Authentic Italian Restaurant</strong><br><br>
+                       <strong>Address:</strong> 789 Dong Khoi Street, District 1, HCMC<br>
+                       <strong>Opening hours:</strong> 11:00 - 23:00 (Monday - Sunday)<br>
+                       <strong>Phone:</strong> (028) 3824 9012<br>
+                       <strong>Specialties:</strong> Pizza, Pasta, Risotto, Tiramisu<br>
+                       <strong>Average price:</strong> 200,000 - 400,000 VND/person<br>
+                       <strong>Services:</strong> Romantic space, Italian wine, Birthday parties`,
+            }
+        };
 
         let currentRestaurant = null;
 
@@ -232,20 +237,20 @@
             chatbox.classList.add('active');
 
             // Reset chat messages
-chatMessages.innerHTML = `
-    <div class="message">
-        <img src="${currentRestaurant.avatar}" alt="Bot" class="message-avatar">
-        <div class="message-content">
-            Hello! I'm the virtual assistant of ${currentRestaurant.name}. How can I help you today? 😊
-        </div>
-    </div>
-`;
+            chatMessages.innerHTML = `
+                <div class="message">
+                    <img src="${currentRestaurant.avatar}" alt="Bot" class="message-avatar">
+                    <div class="message-content">
+                        Hello! I'm the virtual assistant for ${currentRestaurant.name}. How can I help you today? 😊
+                    </div>
+                </div>
+            `;
         }
 
         function closeInfo() {
             document.getElementById('info-section').classList.remove('active');
         }
-        //Tạo chat ID
+        //Create chat ID
         const chatId = generateChatId();
 
         function generateChatId() {
@@ -266,97 +271,102 @@ chatMessages.innerHTML = `
             const urlWithParams = `${WEBHOOK_URL}?message=${encodeURIComponent(message)}&restaurant=${encodeURIComponent(currentRestaurant.name || 'golden-dragon')}&chat_id=${encodeURIComponent(chatId)}`;
 
             fetch(urlWithParams)
-    .then(response => {
-        return response.text().then(text => {
-            if (!response.ok) {
-                throw new Error(`Server error (${response.status}): ${text}`);
-            }
+                .then(response => {
+                    return response.text().then(text => {
+                        if (!response.ok) {
+                            throw new Error(`Server error (${response.status}): ${text}`);
+                        }
 
-            try {
-                return JSON.parse(text);
-            } catch (parseError) {
-                throw new Error('Invalid response from server');
-            }
-        });
-    })
-    .then(data => {
-        let reply = null;
+                        try {
+                            return JSON.parse(text);
+                        } catch (parseError) {
+                            throw new Error('Server returned invalid data');
+                        }
+                    });
+                })
+                .then(data => {
+                    let reply = null;
 
-        if (Array.isArray(data)) {
-            if (data.length > 0 && data[0].reply) {
-                reply = data[0].reply;
-            }
-        } else if (data && data.reply) {
-            reply = data.reply;
+                    if (Array.isArray(data)) {
+                        if (data.length > 0 && data[0].reply) {
+                            reply = data[0].reply;
+                        }
+                    } else if (data && data.reply) {
+                        reply = data.reply;
+                    }
+
+                    if (reply) {
+                        addMessage(reply, false);
+                    } else {
+                        throw new Error('No valid response found from webhook');
+                    }
+                })
+                .catch(error => {
+                    console.error('Webhook error:', error);
+                    addMessage("Sorry, our system encountered an error. Please try again later.", false);
+                });
         }
 
-        if (reply) {
-            addMessage(reply, false);
-        } else {
-            throw new Error('No valid reply found from webhook');
+
+        function sendMessage() {
+            const input = document.getElementById('message-input');
+            const message = input.value.trim();
+
+            if (!message) return;
+            if (!currentRestaurant) {
+                alert('Please select a restaurant first!');
+                return;
+            }
+
+            addMessage(message, true); // Show user message
+            input.value = '';
+
+            const WEBHOOK_URL = 'https://n8n.kpsimple.store/webhook/9c35f315-03c5-4569-8789-ea6d6c8543e2';
+
+            // Send message via query param (GET)
+            const urlWithParams = `${WEBHOOK_URL}?message=${encodeURIComponent(message)}&restaurant=${encodeURIComponent(currentRestaurant.name || 'golden-dragon')}&chat_id=${encodeURIComponent(chatId)}`;
+
+            fetch(urlWithParams)
+                .then(response => {
+                    return response.text().then(text => {
+                        if (!response.ok) {
+                            throw new Error(`Server error (${response.status}): ${text}`);
+                        }
+
+                        try {
+                            return JSON.parse(text);
+                        } catch (parseError) {
+                            throw new Error('Server returned invalid data');
+                        }
+                    });
+                })
+                .then(data => {
+                    let reply = null;
+
+                    if (Array.isArray(data)) {
+                        if (data.length > 0 && data[0].reply) {
+                            reply = data[0].reply;
+                        }
+                    } else if (data && data.reply) {
+                        reply = data.reply;
+                    }
+
+                    if (reply) {
+                        addMessage(reply, false);
+                    } else {
+                        throw new Error('No valid response found from webhook');
+                    }
+                })
+                .catch(error => {
+                    console.error('Webhook error:', error);
+                    addMessage("Sorry, our system encountered an error. Please try again later.", false);
+                });
+            setTimeout(() => {
+                let response = 'Thank you for your message! Our team will respond as soon as possible. You can try the common questions below! 😊';
+
+                addMessage(response, false);
+            }, 1000);
         }
-    })
-    .catch(error => {
-        console.error('Webhook error:', error);
-        addMessage("Sorry, the system encountered an error. Please try again later.", false);
-    });
-
-    function sendMessage() {
-    const input = document.getElementById('message-input');
-    const message = input.value.trim();
-
-    if (!message) return;
-
-    addMessage(message, true); // Display user's message
-    input.value = '';
-
-    const WEBHOOK_URL = 'https://n8n.kpsimple.store/webhook/9c35f315-03c5-4569-8789-ea6d6c8543e2';
-
-    // Send message using query parameters (GET)
-    const urlWithParams = `${WEBHOOK_URL}?message=${encodeURIComponent(message)}&restaurant=${encodeURIComponent(currentRestaurant.name || 'golden-dragon')}&chat_id=${encodeURIComponent(chatId)}`;
-
-    fetch(urlWithParams)
-        .then(response => {
-            return response.text().then(text => {
-                if (!response.ok) {
-                    throw new Error(`Server error (${response.status}): ${text}`);
-                }
-
-                try {
-                    return JSON.parse(text);
-                } catch (parseError) {
-                    throw new Error('Invalid data returned from server');
-                }
-            });
-        })
-        .then(data => {
-            let reply = null;
-
-            if (Array.isArray(data)) {
-                if (data.length > 0 && data[0].reply) {
-                    reply = data[0].reply;
-                }
-            } else if (data && data.reply) {
-                reply = data.reply;
-            }
-
-            if (reply) {
-                addMessage(reply, false);
-            } else {
-                throw new Error('No valid reply received from webhook');
-            }
-        })
-        .catch(error => {
-            console.error('Webhook error:', error);
-            addMessage("Sorry, the system encountered an error. Please try again later.", false);
-        });
-
-    setTimeout(() => {
-        let response = "Thank you for your message! Our team will get back to you as soon as possible. You can also try some popular questions below! 😊";
-
-        addMessage(response, false);
-    }, 1000);
-}
 
 
         function addMessage(message, isUser) {
@@ -366,7 +376,7 @@ chatMessages.innerHTML = `
 
             const avatar = isUser ? '/Picture/Support.jpg' : currentRestaurant.avatar;
 
-            const content = isUser ? message : marked.parse(message);
+            const content = isUser ? message : marked.parse(message); // Chuyển markdown sang HTML nếu là bot
 
             messageDiv.innerHTML = `
             <img src="${avatar}" alt="${isUser ? 'User' : 'Bot'}" class="message-avatar">
@@ -389,6 +399,7 @@ chatMessages.innerHTML = `
             document.getElementById('unhide-button').style.display = 'block';
         });
 
+        // Nút "← Quay lại phần giới thiệu"
         document.getElementById('unhide-button').addEventListener('click', function () {
             document.querySelector('.Introduction').style.display = 'block';
             document.querySelector('.main-content').classList.add('hidden');
