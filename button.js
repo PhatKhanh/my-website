@@ -5,7 +5,7 @@ function goToHomePage() {
 
 // Tạo button và thêm vào trang
 const navButton = document.createElement('button');
-navButton.innerHTML = '← Home page';
+navButton.innerHTML = '← Home';
 navButton.onclick = goToHomePage;
 
 // Style cho button
