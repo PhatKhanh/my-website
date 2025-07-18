@@ -1,6 +1,6 @@
 // Hàm điều hướng về trang chủ
 function goToHomePage() {
-    window.location.href = '../index.html';
+    window.location.href = 'https://kpsimple.store/';
 }
 
 // Tạo button và thêm vào trang
