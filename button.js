@@ -1,6 +1,6 @@
-// button.js - Tạo button navigation đơn giản
+// Hàm điều hướng về trang chủ
 function goToHomePage() {
-    window.location.href = '/index.html';
+    window.location.href = '/my-website/index.html';  // <-- Đường dẫn tuyệt đối từ gốc GitHub Pages
 }
 
 // Tạo button và thêm vào trang
@@ -25,12 +25,11 @@ navButton.style.cssText = `
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 `;
 
-// Thêm hover effect
+// Thêm hiệu ứng hover
 navButton.addEventListener('mouseenter', function() {
     this.style.background = '#4f46e5';
     this.style.transform = 'translateY(-1px)';
 });
-
 navButton.addEventListener('mouseleave', function() {
     this.style.background = '#6366f1';
     this.style.transform = 'translateY(0)';
