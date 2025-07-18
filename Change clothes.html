@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI Outfit - Change Clothes Online</title>
+    <link rel="stylesheet" href="/Stype CSS/Change clothes.css">
+    <script type="module" src="/General style/button.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Smart AI Outfit</h1>
+        <p>Change clothes in photos and create unique fashion styles in seconds with free AI!</p>
+    </div>
+
+    <div class="container">
+        <div class="controls-panel">
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Upload a clear body photo</div>
+                </div>
+                <div class="upload-area" onclick="triggerFileInput()">
+                    <div class="upload-content" id="uploadContent">
+                        <div class="upload-icon">📷</div>
+                        <div class="upload-text">Upload Photo</div>
+                        <div class="upload-text1">Drag and drop or upload JPG, PNG, WEBP images</div>
+                    </div>
+                    <div id="uploadBox" class="upload-box"></div>
+                </div>
+                <input type="file" id="fileInput" accept="image/*" onchange="handleImageUpload(this)"
+                    style="display: none;">
+            </div>
+
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Choose new outfit</div>
+                </div>
+
+                <div class="clothes-selector">
+                    <div class="clothes-type">
+                        <label>Your item</label>
+                    </div>
+                    <div class="clothes-grid">
+                        <div class="clothes-item" data-style="jeans" onclick="selectClothes(this)">👖</div>
+                        <div class="clothes-item" data-style="green-dress" onclick="selectClothes(this)">👗</div>
+                        <div class="clothes-item" data-style="camisole" onclick="selectClothes(this)">👚</div>
+                        <div class="clothes-item" data-style="black-tee" onclick="selectClothes(this)">👕</div>
+                        <div class="clothes-item" data-style="pink-top" onclick="selectClothes(this)">🎀</div>
+                        <div class="clothes-item" data-style="brown-dress" onclick="selectClothes(this)">🤎</div>
+                        <div class="clothes-item" data-style="light-jeans" onclick="selectClothes(this)">👖</div>
+                        <div class="clothes-item" data-style="black-shorts" onclick="selectClothes(this)">🩳</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="generate-btn" id="generateButton" onclick="generateOutfit()">
+                <div class="loading-spinner" id="loadingSpinner"></div>
+                <span id="buttonText">Generate Now</span>
+            </button>
+        </div>
+
+        <div class="result-panel">
+            <div class="result-content">
+                <div class="placeholder-content" id="placeholderContent">
+                    <div class="placeholder-text">
+                        Upload a photo and choose a style to start creating a new outfit!
+                    </div>
+                    <div class="demo-images">
+                        <div class="demo-image" id="originalDemo">
+                            <div>
+                                <div style="font-size: 2.9rem; margin-bottom: 10px;">🎞️</div>
+                                <div>Original Image</div>
+                            </div>
+                        </div>
+                        <div class="demo-image" id="resultDemo">
+                            <div>
+                                <div style="font-size: 3rem; margin-bottom: 10px;">✨</div>
+                                <div>AI Result</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="loading" id="loadingElement" style="display: none;">
+                    <div class="spinner"></div>
+                    <div class="loading-text">Generating new outfit...</div>
+                </div>
+
+                <div class="result-images" id="resultImages" style="display: none;">
+                    <div class="result-image">
+                        <img id="originalImage" src="" alt="Original Image">
+                        <div class="result-label">Original Image</div>
+                    </div>
+                    <div class="result-image">
+                        <img id="resultImage" src="" alt="AI Result">
+                        <div class="result-label">AI Result</div>
+                    </div>
+                    <div class="arrow-between">→</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // Variables
+        let uploadedImage = null;
+        let selectedClothes = null;
+        let isProcessing = false;
+        //Variables: File Type
+        function validateFileType(file) {
+            const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+            return allowedTypes.includes(file.type);
+        }
+        //Variables: File Size
+        function validateFileSize(file) {
+            const maxSize = 5 * 1024 * 1024; // 5MB
+            return file.size <= maxSize;
+        }
+
+        //Fuction: File upload
+        function triggerFileInput() {
+            document.getElementById('fileInput').click();
+        }
+
+        let uploadedFile = null;
+        // handle cũ
+        // function handleImageUpload(input) {
+        //     const file = input.files[0];
+        //     if (!file) return;
+
+        //     // Validate file
+        //     if (!validateFileType(file)) {
+        //         showMessage('Chỉ chấp nhận file JPG, PNG, WEBP!', 'error');
+        //         return;
+        //     }
+        //     if (!validateFileSize(file)) {
+        //         showMessage('File quá lớn! Tối đa 5MB.', 'error');
+        //         return;
+        //     }
+
+        //     //Nếu file hợp lệ => lưu dưới dạng uploadedFile
+        //     uploadedFile = file;
+        //     const reader = new FileReader();
+        //     reader.onload = function (e) {
+        //         uploadedImage = e.target.result;
+        //         displayUploadedImageInDemo();
+        //         showMessage('Tải ảnh thành công!', 'success');
+        //     };
+
+        //     reader.onerror = function () {
+        //         showMessage('Lỗi khi đọc file!', 'error');
+        //     };
+
+        //     reader.readAsDataURL(file);
+        // }
+
+        // handle mới
+        function handleImageUpload(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            // Validate file
+            if (!validateFileType(file)) {
+                showMessage('Chỉ chấp nhận file JPG, PNG, WEBP!', 'error');
+                return;
+            }
+            if (!validateFileSize(file)) {
+                showMessage('File quá lớn! Tối đa 5MB.', 'error');
+                return;
+            }
+
+            // 👉 Reset toàn bộ trạng thái cũ (nếu có)
+            resetAppState();
+
+            // Nếu file hợp lệ => lưu dưới dạng uploadedFile
+            uploadedFile = file;
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                uploadedImage = e.target.result;
+                displayUploadedImageInDemo();
+                showMessage('Tải ảnh thành công!', 'success');
+            };
+
+            reader.onerror = function () {
+                showMessage('Lỗi khi đọc file!', 'error');
+            };
+
+            reader.readAsDataURL(file);
+        }
+        // handle mới </end>
+        function resetAppState() {
+            // 1. Xoá ảnh đã upload
+            const uploadBox = document.getElementById('uploadBox');
+            if (uploadBox) uploadBox.innerHTML = '';
+
+            // 2. Reset kết quả demo ở khung phải (resultDemo)
+            const resultDemo = document.getElementById('resultDemo');
+            if (resultDemo) {
+                resultDemo.innerHTML = `
+            <div>
+                <div style="font-size: 3rem; margin-bottom: 10px;">✨</div>
+                <div>AI Result</div>
+            </div>
+        `;
+            }
+
+            // 3. Ẩn khu vực hiển thị ảnh kết quả (nếu có)
+            const resultImages = document.getElementById('resultImages');
+            if (resultImages) resultImages.style.display = 'none';
+
+            // 4. Hiện lại phần placeholder gợi ý
+            const placeholderContent = document.getElementById('placeholderContent');
+            if (placeholderContent) placeholderContent.style.display = 'block';
+
+            // 5. Reset nút Generate
+            const buttonText = document.getElementById('buttonText');
+            const spinner = document.getElementById('loadingSpinner');
+            const generateButton = document.getElementById('generateButton');
+
+            if (buttonText) buttonText.textContent = 'Generate Now';
+            if (spinner) spinner.style.display = 'none';
+            if (generateButton) generateButton.disabled = false;
+
+            // 6. Bỏ chọn quần áo cũ
+            const selected = document.querySelector('.clothes-item.selected');
+            if (selected) selected.classList.remove('selected');
+        }
+
+
+
+
+        function displayUploadedImageInDemo() {
+            const originalDemo = document.getElementById('originalDemo');
+
+            if (!originalDemo || !uploadedImage) return;
+
+            // Create image element
+            const imgElement = document.createElement('img');
+            imgElement.src = uploadedImage;
+            imgElement.style.cssText = `
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 15px;
+            `;
+
+            // Create label
+            const labelElement = document.createElement('div');
+            labelElement.textContent = 'Original Image';
+            labelElement.style.cssText = `
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(0, 0, 0, 0.7);
+                color: white;
+                padding: 5px 15px;
+                border-radius: 20px;
+                font-size: 0.9rem;
+                z-index: 10;
+            `;
+
+            // Clear and add new content
+            originalDemo.innerHTML = '';
+            originalDemo.appendChild(imgElement);
+            originalDemo.appendChild(labelElement);
+        }
+
+        function displayResultInSecondDemo(resultImageSrc) {
+            const resultDemo = document.getElementById('resultDemo');
+            
+            //Hiệu ứng shape
+            const resultImg = document.getElementById('resultImage');
+            resultImg.classList.remove('shape-animate-img'); // reset nếu cần chạy lại
+            void resultImg.offsetWidth; // trigger lại animation
+            resultImg.classList.add('shape-animate-img');
+
+            if (!resultDemo || !resultImageSrc) return;
+
+            // Create image element
+            const imgElement = document.createElement('img');
+            imgElement.src = resultImageSrc;
+            imgElement.style.cssText = `
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 15px;
+            `;
+
+            // Create label
+            const labelElement = document.createElement('div');
+            labelElement.textContent = 'AI Result';
+            labelElement.style.cssText = `
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(0, 0, 0, 0.7);
+                color: white;
+                padding: 5px 15px;
+                border-radius: 20px;
+                font-size: 0.9rem;
+                z-index: 10;
+            `;
+
+            // Clear and add new content
+            resultDemo.innerHTML = '';
+            resultDemo.appendChild(imgElement);
+            resultDemo.appendChild(labelElement);
+            resultDemo.style.animation = 'slideIn 0.5s ease-in-out';
+        }
+
+        // Clothes selection
+        function selectClothes(el) {
+            // Remove previous selection
+            const items = document.querySelectorAll('.clothes-item');
+            items.forEach(item => item.classList.remove('selected'));
+
+            // Add selection to clicked item
+            el.classList.add('selected');
+
+            // Save selected style
+            selectedClothes = el.getAttribute('data-style');
+            console.log('👗 Selected:', selectedClothes);
+        }
+
+        // Main generation function
+        async function generateOutfit() {
+            if (isProcessing) {
+                showMessage('Đang xử lý, vui lòng chờ...', 'info');
+                return;
+            }
+
+            if (!uploadedFile) {
+                showMessage('Vui lòng tải lên ảnh trước!', 'error');
+                return;
+            }
+
+            if (!selectedClothes) {
+                showMessage('Vui lòng chọn phong cách trang phục!', 'error');
+                return;
+            }
+
+            isProcessing = true;
+            setLoadingState(true);
+
+            try {
+                const formData = new FormData();
+                formData.append('image', uploadedFile);
+                formData.append('clothingStyle', selectedClothes);
+                formData.append('timestamp', Date.now());
+
+                const WEBHOOK_URL = 'https://n8n.kpsimple.store/webhook/0cb90b9e-d8f2-4d36-8ce3-41acb5cdcc1f';
+                const response = await fetchWithTimeout(WEBHOOK_URL, {
+                    method: 'POST',
+                    body: formData
+                }, 30000);
+
+                if (!response.ok) {
+                    throw new Error(`Server error (${response.status}): ${response.statusText}`);
+                }
+
+                const blob = await response.blob();
+                const resultImageBase64 = await convertBlobToBase64(blob);
+
+                displayResultInSecondDemo(resultImageBase64);
+                showResultImages(uploadedImage, resultImageBase64);
+
+                showMessage('Tạo outfit thành công!', 'success');
+
+            } catch (error) {
+                console.error('❌ Generate outfit error:', error);
+                showMessage(`Lỗi: ${error.message}`, 'error');
+            } finally {
+                isProcessing = false;
+                setLoadingState(false);
+            }
+        }
+
+        function showResultImages(originalSrc, resultSrc) {
+            const originalImage = document.getElementById('originalImage');
+            const resultImage = document.getElementById('resultImage');
+
+            if (originalImage) originalImage.src = originalSrc;
+            if (resultImage) resultImage.src = resultSrc;
+
+            document.getElementById('placeholderContent')?.style.setProperty('display', 'none');
+            document.getElementById('loadingElement')?.style.setProperty('display', 'none');
+            document.getElementById('resultImages')?.style.setProperty('display', 'grid');
+        }
+
+        // Helper functions
+        function validateImage(imageData) {
+            if (!imageData || typeof imageData !== 'string') {
+                return false;
+            }
+
+            // Check if it's valid base64 image
+            const base64Pattern = /^data:image\/(jpeg|jpg|png|gif|webp);base64,/;
+            if (!base64Pattern.test(imageData)) {
+                return false;
+            }
+
+            // Check file size (estimate: base64 is ~1.37x larger than original)
+            const sizeInBytes = (imageData.length * 3) / 4;
+            const maxSize = 5 * 1024 * 1024; // 5MB
+
+            return sizeInBytes <= maxSize;
+        }
+
+        function fetchWithTimeout(url, options, timeout) {
+            return Promise.race([
+                fetch(url, options),
+                new Promise((_, reject) =>
+                    setTimeout(() => reject(new Error('Request timeout')), timeout)
+                )
+            ]);
+        }
+        function convertBlobToBase64(blob) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onloadend = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(blob);
+            });
+        }
+        function setLoadingState(isLoading) {
+            const button = document.getElementById('generateButton');
+            const buttonText = document.getElementById('buttonText');
+            const spinner = document.getElementById('loadingSpinner');
+
+            if (isLoading) {
+                button.disabled = true;
+                buttonText.textContent = 'Đang xử lý...';
+                if (spinner) spinner.style.display = 'block';
+            } else {
+                button.disabled = false;
+                buttonText.textContent = 'Generate Now';
+                if (spinner) spinner.style.display = 'none';
+            }
+        }
+
+        function showMessage(message, type = 'info') {
+            // Create or update message element
+            const messageEl = document.getElementById('messageBox') || createMessageElement();
+            messageEl.textContent = message;
+            messageEl.className = `message ${type}`;
+            messageEl.style.display = 'block';
+
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                messageEl.style.display = 'none';
+            }, 5000);
+        }
+
+        function createMessageElement() {
+            const messageEl = document.createElement('div');
+            messageEl.id = 'messageBox';
+            messageEl.className = 'message';
+            document.body.appendChild(messageEl);
+            return messageEl;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('Smart AI Outfit initialized');
+
+            // Reset all states
+            uploadedImage = null;
+            selectedClothes = null;
+            isProcessing = false;
+
+            // Reset UI
+            const uploadBox = document.getElementById('uploadBox');
+            const uploadContent = document.getElementById('uploadContent');
+
+            if (uploadBox) uploadBox.style.display = 'none';
+            if (uploadContent) uploadContent.style.display = 'block';
+
+            // Clear selections
+            const items = document.querySelectorAll('.clothes-item');
+            items.forEach(item => item.classList.remove('selected'));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Summary Tool - Summary Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Stype CSS/Ytb branch.css">
+</head>
+
+<body>
+    </section>
+    <!-- Navigation -->
+    <div class="nav">
+        <button class="nav-btn" onclick="goToPreHomepage()" aria-label="Navigation Button">
+            ← Back
+        </button>
+    </div>
+
+    <!-- Header -->
+    <div class="header-section">
+        <h1 class="main-title">YouTube Summary with KPsimple</h1>
+        <h2 class="subtitle">Online and Free</h2>
+        <p class="description">Summarize YouTube videos in a few seconds</p>
+    </div>
+
+    <!-- Input Section -->
+    <div class="input-container">
+        <input type="text" class="url-input" placeholder="🔗 Paste your URL here!" id="videoUrl"
+            aria-label="YouTube URL Input">
+    </div>
+
+    <button class="summarize-btn" onclick="summarizeVideo()" id="summarizeBtn"
+        aria-label="Summarize Video Button">Summarize</button>
+
+    <!-- Chat Section -->
+    <div id="chat">
+        <div class="message"><strong>System:</strong> Enter a YouTube video URL and click "Summarize" to begin.</div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content-section">
+        <div class="content-left">
+            <h3 class="content-title">
+                Our advanced YouTube AI summarization tool helps you create concise
+                and accurate summaries for convenient learning and working.
+            </h3>
+            <p class="content-description">
+                Whether you're a student, a professional learning a new skill, or a casual viewer
+                trying to save time, our tool helps you get the gist faster.
+            </p>
+
+            <div class="try-banner">
+                <h3>Try it now ⚡ – Fast, easy, and convenient!</h3>
+                <p>Get summaries instantly without leaving your browser</p>
+            </div>
+        </div>
+
+        <div class="content-right">
+            <div class="demo-image">
+                <div class="demo-placeholder">
+                    📹 Demo Video Interface
+                </div>
+                <p class="demo-text">Experience our intuitive summarization interface</p>
+            </div>
+
+            <div class="demo-image">
+                <div class="demo-placeholder">
+                    📝 AI Summary Results
+                </div>
+                <p class="demo-text">Receive detailed, accurate summaries in seconds</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Analyzing video...</p>
+            <p style="font-size: 14px; color: #666; margin-top: 10px;">Please wait a moment</p>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <h2>Let’s Collaborate</h2>
+        <p>Ready to automate processes or optimize systems? Reach out to discuss how I can help.</p>
+        <div class="social-links">
+            <a href="mailto:ovkphat@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/phat-ong-73397b221"><i class="fab fa-linkedin"></i></a>
+            <a href="http://127.0.0.1:5500/Home.html"><i class="fas fa-globe"></i></a>
+        </div>
+    <script>
+            function goToPreHomepage() {
+                window.location.href = 'Ytb home.html';
+            }
+
+            function summarizeVideo() {
+                const videoUrl = document.getElementById('videoUrl').value.trim();
+                const summarizeBtn = document.getElementById('summarizeBtn');
+
+                // Validate input
+                if (!videoUrl) {
+                    alert('Vui lòng nhập URL video YouTube!');
+                    return;
+                }
+
+                // Basic YouTube URL validation
+                if (!videoUrl.includes('youtube.com/watch') && !videoUrl.includes('youtu.be/')) {
+                    alert('Vui lòng nhập URL YouTube hợp lệ!');
+                    return;
+                }
+
+                // Disable button và show loading
+                if (summarizeBtn) {
+                    summarizeBtn.disabled = true;
+                    summarizeBtn.textContent = 'Đang xử lý...';
+                }
+
+                const loadingModal = document.getElementById('loadingModal');
+                if (loadingModal) {
+                    loadingModal.classList.add('show');
+                }
+
+                const WEBHOOK_URL = 'https://n8n.kpsimple.store/webhook/5a40545d-44d7-4399-a958-8d5a9cfd2825';
+                const urlWithParams = `${WEBHOOK_URL}?videoUrl=${encodeURIComponent(videoUrl)}`;
+
+                fetch(urlWithParams)
+                    .then(response => {
+                        return response.text().then(text => {
+                            if (!response.ok) {
+                                throw new Error(`Lỗi server (${response.status}): ${text}`);
+                            }
+
+                            try {
+                                return JSON.parse(text);
+                            } catch (parseError) {
+                                throw new Error('Server trả về dữ liệu không hợp lệ');
+                            }
+                        });
+                    })
+                    .then(data => {
+                        let summary = null;
+
+                        // Xử lý response - kiểm tra cả trường hợp array và object
+                        if (Array.isArray(data)) {
+                            if (data.length > 0 && data[0].summary) {
+                                summary = data[0].summary;
+                            }
+                        } else if (data && data.summary) {
+                            summary = data.summary;
+                        }
+
+                        if (summary) {
+                            displaySummary(videoUrl, summary);
+                        } else {
+                            throw new Error('Không tìm thấy nội dung tóm tắt trong phản hồi từ server');
+                        }
+                    })
+                    .catch(error => {
+                        const errorMessage = error.message || 'Có lỗi xảy ra khi xử lý video';
+                        alert('Lỗi: ' + errorMessage);
+                    })
+                    .finally(() => {
+                        // Restore button và hide loading
+                        if (summarizeBtn) {
+                            summarizeBtn.disabled = false;
+                            summarizeBtn.textContent = 'Summarize';
+                        }
+
+                        if (loadingModal) {
+                            loadingModal.classList.remove('show');
+                        }
+                    });
+            }
+
+            function displaySummary(videoUrl, summary) {
+                const chatBox = document.getElementById('chat');
+
+                if (chatBox) {
+                    const userMessage = document.createElement('div');
+                    userMessage.className = 'message';
+                    userMessage.innerHTML = `<strong>Bạn:</strong> ${videoUrl}`;
+                    chatBox.appendChild(userMessage);
+
+                    const aiMessage = document.createElement('div');
+                    aiMessage.className = 'message';
+
+                    // ✅ GIẢI MÃ \\n → \n, rồi thay \n → <br>
+                    const fixed = summary.replace(/\\n/g, '\n').replace(/\n/g, '<br>');
+
+                    aiMessage.innerHTML = `<strong>AI:</strong> <span>${fixed}</span>`;
+                    chatBox.appendChild(aiMessage);
+
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }
+
+                const urlInput = document.getElementById('videoUrl');
+                if (urlInput) {
+                    urlInput.value = '';
+                }
+            }
+
+            // Add Enter key support for input
+            document.addEventListener('DOMContentLoaded', function () {
+                const videoUrlInput = document.getElementById('videoUrl');
+                if (videoUrlInput) {
+                    videoUrlInput.addEventListener('keypress', function (e) {
+                        if (e.key === 'Enter') {
+                            summarizeVideo();
+                        }
+                    });
+                }
+            });
+    </script>
+    </section>
+</body>
+
+</html>
