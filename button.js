@@ -16,7 +16,7 @@ navButton.style.cssText = `
     z-index: 1000;
     background: #6366f1;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 12px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
