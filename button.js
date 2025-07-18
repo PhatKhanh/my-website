@@ -1,6 +1,6 @@
 // Hàm điều hướng về trang chủ
 function goToHomePage() {
-    window.location.href = '/index.html';  // <-- Đường dẫn tuyệt đối từ gốc GitHub Pages
+    window.location.href = 'index.html';  // <-- Đường dẫn tuyệt đối từ gốc GitHub Pages
 }
 
 // Tạo button và thêm vào trang
