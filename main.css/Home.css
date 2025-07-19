@@ -77,6 +77,15 @@ nav a {
     white-space: nowrap;
 }
 
+/* LOGO - Responsive */
+.logo {
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    transform: scale(1.2);
+    transform-origin: center;
+}
+/* Contact me */
 nav a:hover {
     color: #22C55E;
 }
@@ -96,14 +105,14 @@ nav a:hover {
     background-color: #0bf5f1;
 }
 
-.dropdown-toggle::after {
-    content: " ▼";
-    font-size: 10px;
-}
-
 /* Dropdown - Responsive */
 .dropdown {
     position: relative;
+}
+
+.dropdown-toggle::after {
+    content: " ▼";
+    font-size: 10px;
 }
 
 .dropdown-menu {
@@ -146,15 +155,6 @@ nav a:hover {
 .dropdown-menu li a:hover {
     background-color: #e0e7ff;
     border-radius: 4px;
-}
-
-/* LOGO - Responsive */
-.logo {
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    transform: scale(1.2);
-    transform-origin: center;
 }
 
 /* Hero - Responsive */
