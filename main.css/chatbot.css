@@ -653,7 +653,7 @@ body {
     }
 
     .restaurant-list {
-        max-height: clamp(250px, 30vh, 300px);
+        max-height: clamp(270px, 30vh, 300px);
     }
 
     .message-content {
@@ -689,7 +689,7 @@ body {
     }
 
     .restaurant-card-header {
-        flex-direction: column;
+        flex-direction: row;
         text-align: center;
         gap: clamp(6px, 1.5vw, 8px);
     }

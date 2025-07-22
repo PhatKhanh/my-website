@@ -26,7 +26,6 @@ body {
 /* Navigation - Responsive */
 nav {
     background-color: #FFFFFF;
-    padding: clamp(10px, 2vw, 20px) 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -83,7 +82,7 @@ nav a {
     width: 6rem;
     border-radius: 50%;
     object-fit: cover;
-    transform: scale(1.2);
+    transform: scale(1);
     transform-origin: center;
 }
 /* Contact me */
