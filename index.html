@@ -19,13 +19,13 @@
       </button>
 
       <div class="nav-brand">
-        <img src="../LOGOtron.png" alt="Logo" class="logo">
+        <img src="/Picture/LOGOtron.png" alt="Logo" class="logo">
       </div>
-      
+
       <div class="nav-brand1">
-        <img src="../LOGOdai.png" alt="Logodai" class="logodai" >
+        <img src="/Picture/LOGOdai.png" alt="Logodai" class="logodai">
       </div>
-      
+
       <div class="nav-menu" id="nav-menu">
         <div class="nav-links">
           <a href="#about">About</a>
@@ -44,25 +44,7 @@
       </div>
     </div>
   </nav>
-  <script>
-  const toggleMenu = document.getElementById('toggle-menu');
-  const navMenu = document.getElementById('nav-menu');
 
-  // Khi bấm nút ☰ thì mở hoặc đóng menu
-  toggleMenu.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-
-  // 🔄 Khi bấm vào bất kỳ link nào trong nav-menu thì tự động ẩn menu
-  const navLinks = navMenu.querySelectorAll('a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active'); // Ẩn menu đi
-    });
-  });
-</script>
-
-  
   <!-- Hero -->
   <section class="hero">
     <div class="container">
@@ -187,7 +169,7 @@
         <a href="mailto:[ovkphat@gmail.com]"><i class="fas fa-envelope"></i></a>
         <a href="https://www.linkedin.com/in/phat-ong-73397b221"><i class="fab fa-linkedin"></i></a>
         <a href="index.html"><i class="fas fa-globe"></i></a>
-      </div>  
+      </div>
     </div>
   </section>
   <script type="text/javascript">
@@ -219,6 +201,23 @@
       }
       return gk_fileData[filename] || "";
     }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleMenu = document.getElementById('toggle-menu');
+      const navMenu = document.getElementById('nav-menu');
+
+      toggleMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+
+      const navLinks = navMenu.querySelectorAll('a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+        });
+      });
+    });
   </script>
 </body>
 

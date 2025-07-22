@@ -96,7 +96,6 @@ nav .container {
     padding: 1rem clamp(16px, 4vw, 40px);
     min-height: 80px;
     gap: 30px;
-    overflow:hidden;
 }
 
 /* Logo */
@@ -652,13 +651,13 @@ nav a:hover {
 
     /* Container column layout */
     nav .container {
-        position: relative; 
+        position: relative;
         height: auto;
         padding: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        overflow:hidden;
+
     }
 
     .nav-cta {
@@ -684,7 +683,7 @@ nav a:hover {
         z-index: 11;
         font-size: 24px;
         cursor: pointer;
-        margin-top:15px;
+        margin-top: 15px;
     }
 
     /* Ẩn nav-links ban đầu */
@@ -694,21 +693,24 @@ nav a:hover {
     }
 
     .nav-brand1 {
-        display: block;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 10px;
-        z-index: 10;
+        height: 50px;
+        padding: 0 1rem;
+        /* có thể thêm padding nếu cần canh giữa */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        width: 300px;
     }
 
     .nav-brand1 img {
-        display: block;
-        width: clamp(60px, 20vw, 80px);
-        height: auto;
+        max-height: 100%;
+        width: auto;
         object-fit: contain;
-        transform: scale(2.4);
-        transform-origin: center;
+        display: block;
+        transform:scale(3.5);
+        margin-top: 10px;
+        padding-right:10px;
     }
 
     .nav-menu.active {
