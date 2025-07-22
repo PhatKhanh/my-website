@@ -551,7 +551,7 @@ body {
 
 #unhide-button {
     position: fixed;
-    top: 20px;
+    top: 40px;
     left: 40px;
     z-index: 9999;
     display: none;
@@ -652,13 +652,16 @@ body {
         gap: clamp(8px, 2vw, 12px);
     }
     
-    .restaurant-list {
+    .restaurant-list { 
         max-height: clamp(250px, 30vh, 300px);
     }
     
     .message-content {
         max-width: clamp(200px, 80vw, 85%);
     }
+    #unhide-button {
+        display: none !important;
+      }
 }
 
 @media (max-width: 480px) {
@@ -701,6 +704,9 @@ body {
     .features-grid {
         grid-template-columns: 1fr;
     }
+    #unhide-button {
+        display: none !important;
+      }
 }
 
 @media (max-width: 360px) {
@@ -735,6 +741,7 @@ body {
     .chatbox.active {
         height: clamp(300px, 45vh, 400px);
     }
+    
 }
 
 /* Touch-friendly enhancements */
