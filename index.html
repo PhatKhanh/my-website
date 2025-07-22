@@ -12,28 +12,57 @@
 </head>
 
 <body>
-  <!-- Thanh lựa chọn : Navigation -->
   <nav>
     <div class="container">
-      <div>
-        <a href="#home">
-          <img src="LOGOtron.png" alt="Logo" class="logo">
-        </a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#process">Process</a>
-        <a href="#experience">Experience</a>
-        <div class="dropdown">
-          <a href="#service" class="dropdown-toggle">Service</a>
-          <ul class="dropdown-menu">
-            <li><a href="main.html/Ytbhome.html">YouTube Summary</a></li>
-            <li><a href="main.html/chatbot.html">Custom ChatBot</a></li>
-          </ul>
-        </div>
+      <button class="hamburger" id="toggle-menu" aria-label="Toggle menu">
+        ☰
+      </button>
+
+      <div class="nav-brand">
+        <img src="/Picture/LOGOtron.png" alt="Logo" class="logo">
       </div>
-      <a href="#contact" class="nav-cta">Contact Me</a>
+      
+      <div class="nav-brand1">
+        <img src="/Picture/LOGOdai.png" alt="Logodai" class="logodai" >
+      </div>
+      
+      <div class="nav-menu" id="nav-menu">
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#process">Process</a>
+          <a href="#experience">Experience</a>
+          <div class="dropdown">
+            <a class="droptoggle">Service <span class="dropdown-icon">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="main.html/Ytbhome.html">YouTube Summary</a></li>
+              <li><a href="main.html/chatbot.html">Custom ChatBot</a></li>
+            </ul>
+          </div>
+        </div>
+        <a href="#contact" class="nav-cta">Contact Me</a>
+      </div>
     </div>
   </nav>
+  <script>
+  const toggleMenu = document.getElementById('toggle-menu');
+  const navMenu = document.getElementById('nav-menu');
+
+  // Khi bấm nút ☰ thì mở hoặc đóng menu
+  toggleMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  // 🔄 Khi bấm vào bất kỳ link nào trong nav-menu thì tự động ẩn menu
+  const navLinks = navMenu.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active'); // Ẩn menu đi
+    });
+  });
+</script>
+
+  
   <!-- Hero -->
   <section class="hero">
     <div class="container">
