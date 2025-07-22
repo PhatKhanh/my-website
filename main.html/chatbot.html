@@ -364,7 +364,7 @@
                 let response = 'Thank you for your message! Our team will respond as soon as possible. You can try the common questions below! 😊';
 
                 addMessage(response, false);
-            }, 1000);
+            }, 10000);
         }
 
 
@@ -373,7 +373,7 @@
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${isUser ? 'user' : ''}`;
 
-            const avatar = isUser ? '/Picture/Support.jpg' : currentRestaurant.avatar;
+            const avatar = isUser ? '../Customer.jpg' : currentRestaurant.avatar;
 
             const content = isUser ? message : marked.parse(message); // Chuyển markdown sang HTML nếu là bot
 
