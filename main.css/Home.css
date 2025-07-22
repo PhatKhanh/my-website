@@ -73,7 +73,7 @@ nav a {
     color: #1E3A8A;
     text-decoration: none;
     font-weight: 600;
-    font-size: clamp(14px, 2vw, 20px);
+    font-size: clamp(14px, 2vw, 16px);
     white-space: nowrap;
 }
 
@@ -164,7 +164,7 @@ nav a:hover {
     color: #FFFFFF;
     text-align: center;
     padding: clamp(20px, 8vw, 80px) clamp(20px, 4vw, 20px);
-    min-height: 50vh;
+    min-height: 30vh;
     display: flex;
     align-items: center;
     justify-content: center;
