@@ -710,8 +710,7 @@ nav a:hover {
         object-fit: contain;
         display: block;
         transform: scale(3.5);
-        margin-top: 10px;
-        padding-right: 10px;
+        margin-top: 15px;
     }
 
     .nav-menu.active {
