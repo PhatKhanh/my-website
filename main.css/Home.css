@@ -693,14 +693,15 @@ nav a:hover {
     }
 
     .nav-brand1 {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         height: 50px;
-        padding: 0 1rem;
-        /* có thể thêm padding nếu cần canh giữa */
         display: flex;
         align-items: center;
         justify-content: center;
-        overflow: hidden;
         width: 300px;
+        overflow: hidden;
     }
 
     .nav-brand1 img {
@@ -708,9 +709,9 @@ nav a:hover {
         width: auto;
         object-fit: contain;
         display: block;
-        transform:scale(3.5);
+        transform: scale(3.5);
         margin-top: 10px;
-        padding-right:10px;
+        padding-right: 10px;
     }
 
     .nav-menu.active {

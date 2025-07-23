@@ -12,7 +12,7 @@
              min-height: 100vh;
              text-align: center;
              padding: 0 39px 0 39px;
-             padding-top: 50px;
+             padding-top: 10px;
          }
          .container {
             max-width: 200px;
@@ -76,15 +76,29 @@
 
          /* Input Section */
 
-         .url-input {
-             width: 800px;
-             padding: 20px;
-             border: 1px solid #1143a7;
-             border-radius: 12px;
-             font-size: 16px;
-             outline: none;
-             transition: all 0.3s;
-         }
+         .input-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .input-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
+        .url-input {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #1143a7;
+            border-radius: 12px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s;
+            box-sizing: border-box;
+        }
 
          .url-input:focus {
              border-color: #4a0fd6;
