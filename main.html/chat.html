@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat với AI Assistant</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         
@@ -317,20 +318,47 @@
                 this.sendBtn = document.getElementById('sendBtn');
                 this.typingIndicator = document.getElementById('typingIndicator');
                 this.webhookUrl = 'https://n8n.kpsimple.store/webhook/9c35f315-03c5-4569-8789-ea6d6c8543e2';
+                this.chatId = this.generateChatId();
                 
                 this.initEventListeners();
                 this.autoResizeInput();
             }
 
+            generateChatId() {
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let id = '';
+                for (let i = 0; i < 7; i++) {
+                    id += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                return id;
+            }
+
             initEventListeners() {
                 this.chatForm.addEventListener('submit', (e) => this.handleSubmit(e));
+                
                 this.chatInput.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' && !e.shiftKey) {
                         e.preventDefault();
+                        e.stopPropagation();
                         this.handleSubmit(e);
                     }
                 });
+                
                 this.chatInput.addEventListener('input', () => this.autoResizeInput());
+                
+                // Ensure button doesn't have conflicting onclick
+                this.sendBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.handleSubmit(e);
+                });
+            }
+
+            clearInput() {
+                this.chatInput.value = '';
+                this.chatInput.innerHTML = '';
+                this.autoResizeInput();
+                // Force trigger input event to update any listeners
+                this.chatInput.dispatchEvent(new Event('input', { bubbles: true }));
             }
 
             autoResizeInput() {
@@ -340,85 +368,103 @@
 
             async handleSubmit(e) {
                 e.preventDefault();
+                e.stopPropagation();
+                
                 const message = this.chatInput.value.trim();
                 
-                if (!message) return;
+                if (!message || this.sendBtn.disabled) return; // Prevent double sending
 
                 // Add user message
-                this.addMessage(message, 'user');
-                
-                // Clear input
-                this.chatInput.value = '';
-                this.autoResizeInput();
-                
-                // Disable send button and show typing indicator
+                this.addMessage(message, true);
+
+                // Force clear input completely
+                this.clearInput();
+                this.chatInput.focus(); // Keep focus on input
                 this.sendBtn.disabled = true;
+                
+                // Show typing indicator
                 this.showTypingIndicator();
 
                 try {
-                    // Send to webhook
+                    // Send to webhook using GET method with query parameters
                     const response = await this.sendToWebhook(message);
                     
                     // Add assistant response
-                    this.addMessage(response, 'assistant');
+                    this.addMessage(response, false);
                 } catch (error) {
                     console.error('Error:', error);
-                    this.addErrorMessage('Xin lỗi, đã có lỗi xảy ra khi kết nối với server. Vui lòng thử lại sau.');
+                    this.addMessage("Sorry, our system encountered an error. Please try again later.", false);
                 } finally {
                     // Re-enable send button and hide typing indicator
                     this.sendBtn.disabled = false;
                     this.hideTypingIndicator();
+                    this.chatInput.focus(); // Return focus to input
                 }
             }
 
             async sendToWebhook(message) {
-                const response = await fetch(this.webhookUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        message: message,
-                        timestamp: new Date().toISOString(),
-                        source: 'chat-interface'
-                    })
-                });
+                // Send message via query param (GET method similar to the example)
+                const urlWithParams = `${this.webhookUrl}?message=${encodeURIComponent(message)}&restaurant=${encodeURIComponent('AI Assistant')}&chat_id=${encodeURIComponent(this.chatId)}`;
 
+                const response = await fetch(urlWithParams);
+                
+                const text = await response.text();
+                
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`Server error (${response.status}): ${text}`);
                 }
 
-                const data = await response.json();
-                
-                // Try to extract the response message from various possible formats
-                return data.response || data.message || data.reply || data.text || 'Đã nhận được tin nhắn của bạn!';
+                let data;
+                try {
+                    data = JSON.parse(text);
+                } catch (parseError) {
+                    throw new Error('Server returned invalid data');
+                }
+
+                let reply = null;
+
+                // Handle both array and object responses like in the example
+                if (Array.isArray(data)) {
+                    if (data.length > 0 && data[0].reply) {
+                        reply = data[0].reply;
+                    }
+                } else if (data && data.reply) {
+                    reply = data.reply;
+                }
+
+                if (reply) {
+                    return reply;
+                } else {
+                    throw new Error('No valid response found from webhook');
+                }
             }
 
-            addMessage(content, type) {
+            addMessage(content, isUser) {
                 const messageDiv = document.createElement('div');
-                messageDiv.className = `message ${type}`;
+                messageDiv.className = `message ${isUser ? 'user' : 'assistant'}`;
                 
                 const avatar = document.createElement('div');
                 avatar.className = 'message-avatar';
-                avatar.textContent = type === 'user' ? 'U' : 'AI';
+                avatar.textContent = isUser ? 'U' : 'AI';
                 
                 const messageContent = document.createElement('div');
                 messageContent.className = 'message-content';
-                messageContent.textContent = content;
+                
+                // If it's a bot message and contains markdown, parse it
+                if (!isUser && typeof marked !== 'undefined') {
+                    try {
+                        messageContent.innerHTML = marked.parse(content);
+                    } catch (e) {
+                        messageContent.textContent = content;
+                    }
+                } else {
+                    messageContent.textContent = content;
+                }
                 
                 messageDiv.appendChild(avatar);
                 messageDiv.appendChild(messageContent);
                 
                 this.chatMessages.appendChild(messageDiv);
-                this.scrollToBottom();
-            }
-
-            addErrorMessage(content) {
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'error-message';
-                errorDiv.textContent = content;
-                
-                this.chatMessages.appendChild(errorDiv);
                 this.scrollToBottom();
             }
 
